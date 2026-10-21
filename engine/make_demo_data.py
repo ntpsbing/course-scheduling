@@ -61,6 +61,32 @@ def class_slots(g):
     return out
 
 
+NEW_RULES = [  # 2026-10-21 新增（R17 待 Bing 確認，可改「否」關閉）
+    ["R17", "3 盡量", "同科分散", "所有科任", "同一班同一科一天最多 1 次（連堂算 1 次）", "高", "是", "避免同一天上兩次同科"],
+    ["R18", "3 盡量", "間隔天數", "自然", "同一班自然各次上課至少隔 1 天（例：星期一上連堂，原班那節排星期三以後）", "中",
+     "是", "Bing 2026-10-21：原班那節要不同天，最好差一天"],
+]
+R11_TEXT = "每班每週3節：2節連堂在自然教室（可跨大下課）＋1節在原班，原班那節排不同天"
+
+
+def add_rules(wb):
+    """規則表加上新規則、更新 R11 說明，並讓「規則積木」下拉選單多出新積木。"""
+    ws = wb["規則表"]
+    for r in range(4, ws.max_row + 1):
+        if ws.cell(r, 1).value == "R11":
+            ws.cell(r, 5, R11_TEXT)
+    for k, row in enumerate(NEW_RULES):
+        for j, v in enumerate(row):
+            ws.cell(20 + k, 1 + j, v)
+    opts = wb["選項"]
+    for k, block in enumerate(["同科分散", "間隔天數"]):
+        opts.cell(11 + k, 13, block)
+    for dv in ws.data_validations.dataValidation:
+        if "M$2:$M$10" in (dv.formula1 or ""):
+            dv.formula1 = "選項!$M$2:$M$12"
+        dv.sqref = openpyxl.worksheet.cell_range.MultiCellRange(str(dv.sqref).replace("19", "40"))
+
+
 def main(seed=115, out=OUT):
     random.seed(seed)
     wb = openpyxl.load_workbook(TEMPLATE)
@@ -179,17 +205,7 @@ def main(seed=115, out=OUT):
                 ws.cell(r, 1 + j, v)
             r += 1
 
-    # 規則表：多一條「同科分散」（建議新規則，可改「否」關閉）
-    ws = wb["規則表"]
-    for j, v in enumerate(["R17", "3 盡量", "同科分散", "所有科任", "同一班同一科一天最多 1 次（連堂算 1 次）",
-                           "高", "是", "避免同一天上兩次同科"]):
-        ws.cell(20, 1 + j, v)
-    wb["選項"].cell(11, 13, "同科分散")
-    for dv in ws.data_validations.dataValidation:
-        if "M$2:$M$10" in (dv.formula1 or ""):
-            dv.formula1 = "選項!$M$2:$M$11"
-        dv.sqref = openpyxl.worksheet.cell_range.MultiCellRange(
-            str(dv.sqref).replace("19", "40"))
+    add_rules(wb)
 
     out.parent.mkdir(exist_ok=True)
     wb.save(out)

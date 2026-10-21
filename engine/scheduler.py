@@ -323,6 +323,7 @@ class Scheduler:
         m = cp_model.CpModel()
         block_rule = any(r["target"] in ("自然",) or r["block"] == "連堂" for r in self.on("連堂"))
         spread = self.on("同科分散")
+        gap_rules = self.on("間隔天數")
         daily = self.on("每日節數上限")
         walk = self.on("跑班距離")
         wish_rules = [r for r in self.on("老師不排時段") if r["level"] == 3]
@@ -385,12 +386,31 @@ class Scheduler:
                     occ_room[a["room"]][k].append(b)
                     if k in hard:
                         relax_vars.append((b, t, k, hard[k]))
-            # 連堂那 2 節與原班那節不相連
+            # 連堂那 2 節與原班那節排在不同天
             if use_block:
-                for (dd, p), b in v["blocks"].items():
-                    for q in (p - 1, p + 2):
-                        if (dd, q) in v["singles"]:
-                            m.AddBoolOr([b.Not(), v["singles"][(dd, q)].Not()])
+                for dd in DAYS:
+                    same_day = [b for (d2, _), b in v["blocks"].items() if d2 == dd] + \
+                               [x for (d2, _), x in v["singles"].items() if d2 == dd]
+                    if len(same_day) > 1:
+                        m.Add(sum(same_day) <= 1)
+            # 間隔天數：同一班同一科的各次上課，至少隔 N 天（例如星期一上過，下一次排星期三以後）
+            for r in gap_rules:
+                if a["subject"] not in rule_subjects(r):
+                    continue
+                n = rule_number(r, "天", 1)
+                w = WEIGHT.get(r["importance"], 4)
+                use = {dd: [x for (d2, _), x in list(v["singles"].items()) + list(v["blocks"].items()) if d2 == dd]
+                       for dd in DAYS}
+                for i1, d1 in enumerate(DAYS):
+                    for d2 in DAYS[i1 + 1:i1 + 1 + n]:
+                        if not use[d1] or not use[d2]:
+                            continue
+                        if r["level"] <= 2:
+                            m.Add(sum(use[d1]) + sum(use[d2]) <= 1)
+                        else:
+                            z = m.NewBoolVar("")
+                            m.Add(z >= sum(use[d1]) + sum(use[d2]) - 1)
+                            penalties.append((w, z))
             # 同科分散：一天最多 1 次（連堂算 1 次）
             for dd in DAYS:
                 events = [x for (d2, _), x in v["singles"].items() if d2 == dd] + \
@@ -519,6 +539,20 @@ class Scheduler:
                                                  day=dd, period=q, room=a["room"], block=True))
 
 
+def rule_subjects(r):
+    return {SUBJECT_ABBR.get(x, x) for x in re.split(r"[、,，\s]+", r["target"]) if x}
+
+
+def rule_number(r, unit, default):
+    m = re.search(r"(\d+)\s*" + unit, r["content"])
+    return int(m.group(1)) if m else default
+
+
+def meeting_days(lessons, cls, subject):
+    """某班某科一週在哪幾天上課（連堂算一次）。"""
+    return sorted({DAYS.index(l["day"]) for l in lessons if l["cls"] == cls and l["subject"] == subject})
+
+
 def distance(L1, L2):
     if L1 == L2:
         return 0
@@ -589,8 +623,20 @@ def check(s):
                 blocks = [l for l in mine if l["block"]]
                 if len(blocks) != a["block"]:
                     bad.append(f"{a['cls']} 沒有排到連堂")
+                elif {l["day"] for l in blocks} & {l["day"] for l in mine if not l["block"]}:
+                    bad.append(f"{a['cls']} 原班那節和連堂排在同一天")
             n = len([v for v in s.vars if v["a"]["subject"] == r["target"] and v["a"]["block"]])
-            add(r, not bad, f"{n} 班都是 2 節連堂在專科教室＋1 節在原班，且不相連" if not bad else "有班級沒排好", bad)
+            add(r, not bad, f"{n} 班都是 2 節連堂在專科教室＋1 節在原班，且排在不同天" if not bad else "有班級沒排好", bad)
+        elif b == "間隔天數":
+            n = rule_number(r, "天", 1)
+            bad, total = [], 0
+            for subj in rule_subjects(r):
+                for c in sorted({l["cls"] for l in s.lessons if l["subject"] == subj}):
+                    days = meeting_days(s.lessons, c, subj)
+                    total += 1
+                    if any(b2 - b1 <= n for b1, b2 in zip(days, days[1:])):
+                        bad.append(f"{c} {subj}：星期{'、'.join(DAYS[x] for x in days)}")
+            add(r, not bad, f"{total} 班全部至少隔 {n} 天" if not bad else f"{total} 班中有 {len(bad)} 班沒隔開", bad)
         elif b == "老師不排時段":
             src = s.must if r["level"] <= 2 else s.wish
             asked = sum(len(v) for v in src.values())
