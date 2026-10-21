@@ -1,9 +1,9 @@
 {
  "meta": {
   "source": "試跑資料_排課需求收集表.xlsx",
-  "generated": "2026-10-21 12:44",
+  "generated": "2026-10-21 12:50",
   "status": "OPTIMAL",
-  "seconds": 6.1,
+  "seconds": 5.7,
   "objective": 100.0,
   "relax": false,
   "n_teachers": 40,
@@ -98,7 +98,7 @@
      "room": "原班教室",
      "block": false
     },
-    "一3": {
+    "二3": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -188,7 +188,7 @@
      "room": "原班教室",
      "block": false
     },
-    "四1": {
+    "五4": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -278,14 +278,14 @@
      "room": "原班教室",
      "block": false
     },
-    "三4": {
+    "四4": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
      "room": "操場／體育館",
      "block": false
     },
-    "四4": {
+    "二3": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂甲",
@@ -368,14 +368,14 @@
      "room": "原班教室",
      "block": false
     },
-    "四3": {
+    "二2": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
      "room": "操場／體育館",
      "block": false
     },
-    "二3": {
+    "四4": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂甲",
@@ -458,14 +458,14 @@
      "room": "原班教室",
      "block": false
     },
-    "二1": {
+    "一1": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
      "room": "操場／體育館",
      "block": false
     },
-    "三3": {
+    "一4": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂甲",
@@ -548,7 +548,7 @@
      "room": "原班教室",
      "block": false
     },
-    "五4": {
+    "五1": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -631,14 +631,14 @@
      "type": "off",
      "label": "不上課"
     },
-    "五4": {
+    "三3": {
      "type": "subject",
      "label": "英語",
      "who": "英語甲",
      "room": "原班教室",
      "block": false
     },
-    "一2": {
+    "五2": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -728,7 +728,7 @@
      "room": "原班教室",
      "block": false
     },
-    "三2": {
+    "一3": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -818,14 +818,14 @@
      "room": "原班教室",
      "block": false
     },
-    "三3": {
+    "五3": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
      "room": "操場／體育館",
      "block": false
     },
-    "三2": {
+    "一2": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂甲",
@@ -908,7 +908,7 @@
      "room": "原班教室",
      "block": false
     },
-    "一1": {
+    "二4": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -991,14 +991,14 @@
      "type": "off",
      "label": "不上課"
     },
-    "三3": {
+    "五4": {
      "type": "subject",
      "label": "英語",
      "who": "英語甲",
      "room": "原班教室",
      "block": false
     },
-    "一4": {
+    "一2": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -1088,7 +1088,7 @@
      "room": "原班教室",
      "block": false
     },
-    "二3": {
+    "四1": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -1184,7 +1184,7 @@
      "room": "原班教室",
      "block": false
     },
-    "五3": {
+    "二1": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -1274,7 +1274,7 @@
      "room": "原班教室",
      "block": false
     },
-    "四2": {
+    "二7": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -1364,14 +1364,14 @@
      "room": "原班教室",
      "block": false
     },
-    "五1": {
+    "四3": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
      "room": "操場／體育館",
      "block": false
     },
-    "一2": {
+    "三2": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂甲",
@@ -1454,7 +1454,7 @@
      "room": "原班教室",
      "block": false
     },
-    "五2": {
+    "一4": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -1537,14 +1537,14 @@
      "type": "off",
      "label": "不上課"
     },
-    "四3": {
+    "一3": {
      "type": "subject",
      "label": "英語",
      "who": "英語甲",
      "room": "原班教室",
      "block": false
     },
-    "四4": {
+    "二6": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -1627,14 +1627,14 @@
      "type": "off",
      "label": "不上課"
     },
-    "一3": {
+    "四3": {
      "type": "subject",
      "label": "英語",
      "who": "英語甲",
      "room": "原班教室",
      "block": false
     },
-    "二6": {
+    "三2": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -1717,14 +1717,14 @@
      "type": "off",
      "label": "不上課"
     },
-    "三2": {
+    "二3": {
      "type": "subject",
      "label": "英語",
      "who": "英語甲",
      "room": "原班教室",
      "block": false
     },
-    "二2": {
+    "四2": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -1814,7 +1814,7 @@
      "room": "原班教室",
      "block": false
     },
-    "二7": {
+    "三3": {
      "type": "subject",
      "label": "體育",
      "who": "體育甲",
@@ -2077,7 +2077,7 @@
      "type": "off",
      "label": "不上課"
     },
-    "二4": {
+    "五1": {
      "type": "subject",
      "label": "英語",
      "who": "英語乙",
@@ -2171,7 +2171,7 @@
      "room": "原班教室",
      "block": false
     },
-    "二5": {
+    "二2": {
      "type": "subject",
      "label": "英語",
      "who": "英語乙",
@@ -2206,7 +2206,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "二4": {
+    "一2": {
      "type": "subject",
      "label": "自然",
      "who": "自然甲",
@@ -2227,14 +2227,14 @@
      "room": "自然教室",
      "block": true
     },
-    "二2": {
+    "二4": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊甲",
      "room": "電腦教室",
      "block": false
     },
-    "五1": {
+    "二5": {
      "type": "subject",
      "label": "健康",
      "who": "健康甲",
@@ -2301,14 +2301,14 @@
      "type": "off",
      "label": "不上課"
     },
-    "三2": {
+    "二5": {
      "type": "subject",
      "label": "英語",
      "who": "英語乙",
      "room": "原班教室",
      "block": false
     },
-    "四5": {
+    "三2": {
      "type": "subject",
      "label": "英語",
      "who": "英語乙",
@@ -2336,7 +2336,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "二7": {
+    "三3": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂乙",
@@ -2350,14 +2350,14 @@
      "room": "原班教室",
      "block": false
     },
-    "二5": {
+    "二3": {
      "type": "subject",
      "label": "自然",
      "who": "自然甲",
      "room": "自然教室",
      "block": true
     },
-    "二6": {
+    "二4": {
      "type": "subject",
      "label": "自然",
      "who": "自然甲",
@@ -2371,7 +2371,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "一3": {
+    "四1": {
      "type": "subject",
      "label": "健康",
      "who": "健康甲",
@@ -2452,7 +2452,7 @@
      "room": "原班教室",
      "block": false
     },
-    "一3": {
+    "一4": {
      "type": "subject",
      "label": "體育",
      "who": "體育乙",
@@ -2508,7 +2508,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "二6": {
+    "四2": {
      "type": "subject",
      "label": "健康",
      "who": "健康甲",
@@ -2603,14 +2603,14 @@
      "room": "操場／體育館",
      "block": false
     },
-    "一2": {
+    "四5": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂乙",
      "room": "音樂教室",
      "block": false
     },
-    "四5": {
+    "五1": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂乙",
@@ -2638,7 +2638,7 @@
      "room": "自然教室",
      "block": true
     },
-    "二3": {
+    "二2": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊甲",
@@ -2712,7 +2712,7 @@
      "type": "off",
      "label": "不上課"
     },
-    "二6": {
+    "一4": {
      "type": "subject",
      "label": "英語",
      "who": "英語乙",
@@ -2740,6 +2740,13 @@
      "room": "操場／體育館",
      "block": false
     },
+    "二7": {
+     "type": "subject",
+     "label": "音樂",
+     "who": "音樂乙",
+     "room": "音樂教室",
+     "block": false
+    },
     "四6": {
      "type": "subject",
      "label": "音樂",
@@ -2747,14 +2754,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "五4": {
-     "type": "subject",
-     "label": "音樂",
-     "who": "音樂乙",
-     "room": "音樂教室",
-     "block": false
-    },
-    "二3": {
+    "三3": {
      "type": "subject",
      "label": "自然",
      "who": "自然甲",
@@ -2782,7 +2782,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "二7": {
+    "四5": {
      "type": "subject",
      "label": "健康",
      "who": "健康甲",
@@ -2849,21 +2849,21 @@
      "type": "off",
      "label": "不上課"
     },
-    "一4": {
-     "type": "subject",
-     "label": "英語",
-     "who": "英語乙",
-     "room": "原班教室",
-     "block": false
-    },
-    "五1": {
-     "type": "subject",
-     "label": "英語",
-     "who": "英語乙",
-     "room": "原班教室",
-     "block": false
-    },
     "一1": {
+     "type": "subject",
+     "label": "英語",
+     "who": "英語乙",
+     "room": "原班教室",
+     "block": false
+    },
+    "二4": {
+     "type": "subject",
+     "label": "英語",
+     "who": "英語乙",
+     "room": "原班教室",
+     "block": false
+    },
+    "一3": {
      "type": "subject",
      "label": "體育",
      "who": "體育乙",
@@ -2877,7 +2877,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "二6": {
+    "一2": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂乙",
@@ -2919,7 +2919,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "二5": {
+    "五2": {
      "type": "subject",
      "label": "健康",
      "who": "健康甲",
@@ -3028,7 +3028,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "一1": {
+    "二6": {
      "type": "subject",
      "label": "自然",
      "who": "自然甲",
@@ -3137,14 +3137,14 @@
      "room": "原班教室",
      "block": false
     },
-    "二2": {
+    "一1": {
      "type": "subject",
      "label": "體育",
      "who": "體育乙",
      "room": "操場／體育館",
      "block": false
     },
-    "五4": {
+    "二2": {
      "type": "subject",
      "label": "體育",
      "who": "體育乙",
@@ -3165,21 +3165,21 @@
      "room": "音樂教室",
      "block": false
     },
-    "三4": {
+    "二4": {
      "type": "subject",
      "label": "自然",
      "who": "自然乙",
      "room": "原班教室",
      "block": false
     },
-    "一2": {
+    "四5": {
      "type": "subject",
      "label": "自然",
      "who": "自然乙",
      "room": "自然教室",
      "block": true
     },
-    "一3": {
+    "四6": {
      "type": "subject",
      "label": "自然",
      "who": "自然乙",
@@ -3193,7 +3193,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "四1": {
+    "一3": {
      "type": "subject",
      "label": "健康",
      "who": "健康甲",
@@ -3411,14 +3411,14 @@
      "room": "原班教室",
      "block": false
     },
-    "三2": {
+    "二3": {
      "type": "subject",
      "label": "體育",
      "who": "體育丙",
      "room": "操場／體育館",
      "block": false
     },
-    "五2": {
+    "三2": {
      "type": "subject",
      "label": "體育",
      "who": "體育丙",
@@ -3432,7 +3432,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "四6": {
+    "四5": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丙",
@@ -3460,7 +3460,7 @@
      "room": "自然教室",
      "block": true
     },
-    "二7": {
+    "四6": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊甲",
@@ -3534,7 +3534,7 @@
      "type": "off",
      "label": "不上課"
     },
-    "二6": {
+    "三4": {
      "type": "subject",
      "label": "英語",
      "who": "英語丙",
@@ -3555,42 +3555,42 @@
      "room": "操場／體育館",
      "block": false
     },
-    "五4": {
+    "五2": {
      "type": "subject",
      "label": "體育",
      "who": "體育丙",
      "room": "操場／體育館",
      "block": false
     },
-    "一4": {
+    "四1": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丙",
      "room": "音樂教室",
      "block": false
     },
-    "四2": {
+    "五1": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丙",
      "room": "音樂教室",
-     "block": false
-    },
-    "五3": {
-     "type": "subject",
-     "label": "自然",
-     "who": "自然乙",
-     "room": "原班教室",
      "block": false
     },
     "二3": {
      "type": "subject",
      "label": "自然",
      "who": "自然乙",
+     "room": "原班教室",
+     "block": false
+    },
+    "五3": {
+     "type": "subject",
+     "label": "自然",
+     "who": "自然乙",
      "room": "自然教室",
      "block": true
     },
-    "二4": {
+    "五4": {
      "type": "subject",
      "label": "自然",
      "who": "自然乙",
@@ -3713,7 +3713,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "五4": {
+    "一1": {
      "type": "subject",
      "label": "自然",
      "who": "自然乙",
@@ -3814,13 +3814,6 @@
      "type": "off",
      "label": "不上課"
     },
-    "一2": {
-     "type": "subject",
-     "label": "英語",
-     "who": "英語丙",
-     "room": "原班教室",
-     "block": false
-    },
     "四2": {
      "type": "subject",
      "label": "英語",
@@ -3828,14 +3821,21 @@
      "room": "原班教室",
      "block": false
     },
-    "一4": {
+    "五4": {
+     "type": "subject",
+     "label": "英語",
+     "who": "英語丙",
+     "room": "原班教室",
+     "block": false
+    },
+    "一2": {
      "type": "subject",
      "label": "體育",
      "who": "體育丙",
      "room": "操場／體育館",
      "block": false
     },
-    "四1": {
+    "二5": {
      "type": "subject",
      "label": "體育",
      "who": "體育丙",
@@ -3951,7 +3951,7 @@
      "type": "off",
      "label": "不上課"
     },
-    "四4": {
+    "二5": {
      "type": "subject",
      "label": "英語",
      "who": "英語丙",
@@ -3993,35 +3993,35 @@
      "room": "音樂教室",
      "block": false
     },
-    "一1": {
+    "五1": {
      "type": "subject",
      "label": "自然",
      "who": "自然乙",
      "room": "原班教室",
      "block": false
     },
-    "四5": {
+    "一2": {
      "type": "subject",
      "label": "自然",
      "who": "自然乙",
      "room": "自然教室",
      "block": true
     },
-    "四6": {
+    "一3": {
      "type": "subject",
      "label": "自然",
      "who": "自然乙",
      "room": "自然教室",
      "block": true
     },
-    "五1": {
+    "三4": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊甲",
      "room": "電腦教室",
      "block": false
     },
-    "二4": {
+    "二1": {
      "type": "subject",
      "label": "健康",
      "who": "健康甲",
@@ -4151,14 +4151,14 @@
      "room": "自然教室",
      "block": true
     },
-    "三4": {
+    "二7": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊甲",
      "room": "電腦教室",
      "block": false
     },
-    "四5": {
+    "二3": {
      "type": "subject",
      "label": "健康",
      "who": "健康甲",
@@ -4239,13 +4239,6 @@
      "room": "原班教室",
      "block": false
     },
-    "一2": {
-     "type": "subject",
-     "label": "體育",
-     "who": "體育丙",
-     "room": "操場／體育館",
-     "block": false
-    },
     "二1": {
      "type": "subject",
      "label": "體育",
@@ -4253,7 +4246,14 @@
      "room": "操場／體育館",
      "block": false
     },
-    "四5": {
+    "三4": {
+     "type": "subject",
+     "label": "體育",
+     "who": "體育丙",
+     "room": "操場／體育館",
+     "block": false
+    },
+    "四2": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丙",
@@ -4295,7 +4295,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "四4": {
+    "四3": {
      "type": "subject",
      "label": "健康",
      "who": "健康甲",
@@ -4368,14 +4368,14 @@
      "type": "off",
      "label": "不上課"
     },
-    "四3": {
+    "二6": {
      "type": "subject",
      "label": "英語",
      "who": "英語丙",
      "room": "原班教室",
      "block": false
     },
-    "五4": {
+    "四3": {
      "type": "subject",
      "label": "英語",
      "who": "英語丙",
@@ -4396,21 +4396,21 @@
      "room": "操場／體育館",
      "block": false
     },
-    "四4": {
+    "二1": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丙",
      "room": "音樂教室",
      "block": false
     },
-    "五1": {
+    "三3": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丙",
      "room": "音樂教室",
      "block": false
     },
-    "三4": {
+    "一4": {
      "type": "subject",
      "label": "自然",
      "who": "自然丙",
@@ -4438,7 +4438,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "四5": {
+    "四1": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
@@ -4505,14 +4505,14 @@
      "type": "off",
      "label": "不上課"
     },
-    "三3": {
+    "二1": {
      "type": "subject",
      "label": "英語",
      "who": "英語丙",
      "room": "原班教室",
      "block": false
     },
-    "五2": {
+    "四4": {
      "type": "subject",
      "label": "英語",
      "who": "英語丙",
@@ -4526,7 +4526,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "二3": {
+    "四1": {
      "type": "subject",
      "label": "體育",
      "who": "體育丙",
@@ -4568,14 +4568,14 @@
      "room": "自然教室",
      "block": true
     },
-    "二4": {
+    "二3": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊甲",
      "room": "電腦教室",
      "block": false
     },
-    "四6": {
+    "三2": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
@@ -4712,7 +4712,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "五4": {
+    "二5": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
@@ -4792,7 +4792,7 @@
      "room": "原班教室",
      "block": false
     },
-    "五1": {
+    "三2": {
      "type": "subject",
      "label": "英語",
      "who": "英語丁",
@@ -4855,7 +4855,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "二7": {
+    "五1": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
@@ -4971,14 +4971,14 @@
      "room": "原班教室",
      "block": false
     },
-    "三2": {
+    "三3": {
      "type": "subject",
      "label": "自然",
      "who": "自然丙",
      "room": "自然教室",
      "block": true
     },
-    "三3": {
+    "三4": {
      "type": "subject",
      "label": "自然",
      "who": "自然丙",
@@ -4992,7 +4992,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "一3": {
+    "五2": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
@@ -5087,13 +5087,6 @@
      "room": "操場／體育館",
      "block": false
     },
-    "二1": {
-     "type": "subject",
-     "label": "音樂",
-     "who": "音樂丁",
-     "room": "音樂教室",
-     "block": false
-    },
     "三3": {
      "type": "subject",
      "label": "音樂",
@@ -5101,28 +5094,35 @@
      "room": "音樂教室",
      "block": false
     },
-    "二6": {
+    "四5": {
+     "type": "subject",
+     "label": "音樂",
+     "who": "音樂丁",
+     "room": "音樂教室",
+     "block": false
+    },
+    "五4": {
      "type": "subject",
      "label": "自然",
      "who": "自然丁",
      "room": "原班教室",
      "block": false
     },
-    "五3": {
+    "二5": {
      "type": "subject",
      "label": "自然",
      "who": "自然丁",
      "room": "自然教室",
      "block": true
     },
-    "五4": {
+    "二6": {
      "type": "subject",
      "label": "自然",
      "who": "自然丁",
      "room": "自然教室",
      "block": true
     },
-    "四6": {
+    "四1": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊甲",
@@ -5203,7 +5203,7 @@
      "room": "原班教室",
      "block": false
     },
-    "四4": {
+    "三3": {
      "type": "subject",
      "label": "英語",
      "who": "英語丁",
@@ -5224,6 +5224,13 @@
      "room": "操場／體育館",
      "block": false
     },
+    "一3": {
+     "type": "subject",
+     "label": "音樂",
+     "who": "音樂丁",
+     "room": "音樂教室",
+     "block": false
+    },
     "四7": {
      "type": "subject",
      "label": "音樂",
@@ -5231,14 +5238,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "五4": {
-     "type": "subject",
-     "label": "音樂",
-     "who": "音樂丁",
-     "room": "音樂教室",
-     "block": false
-    },
-    "一1": {
+    "二3": {
      "type": "subject",
      "label": "自然",
      "who": "自然丁",
@@ -5259,14 +5259,14 @@
      "room": "自然教室",
      "block": true
     },
-    "四1": {
+    "五1": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊甲",
      "room": "電腦教室",
      "block": false
     },
-    "三2": {
+    "五3": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
@@ -5340,7 +5340,7 @@
      "room": "原班教室",
      "block": false
     },
-    "四3": {
+    "四6": {
      "type": "subject",
      "label": "英語",
      "who": "英語丁",
@@ -5361,21 +5361,21 @@
      "room": "操場／體育館",
      "block": false
     },
-    "二7": {
+    "一1": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丁",
      "room": "音樂教室",
      "block": false
     },
-    "四4": {
+    "五4": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丁",
      "room": "音樂教室",
      "block": false
     },
-    "二5": {
+    "三2": {
      "type": "subject",
      "label": "自然",
      "who": "自然丁",
@@ -5403,7 +5403,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "二4": {
+    "二6": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
@@ -5493,14 +5493,14 @@
      "room": "音樂教室",
      "block": false
     },
-    "五7": {
+    "五5": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丁",
      "room": "音樂教室",
      "block": false
     },
-    "二4": {
+    "二2": {
      "type": "subject",
      "label": "自然",
      "who": "自然丁",
@@ -5528,7 +5528,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "四2": {
+    "一4": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
@@ -5667,7 +5667,7 @@
      "room": "自然教室",
      "block": true
     },
-    "二2": {
+    "五2": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊乙",
@@ -5681,7 +5681,7 @@
      "room": "原班教室",
      "block": false
     },
-    "一2": {
+    "三2": {
      "type": "subject",
      "label": "社會",
      "who": "社會甲",
@@ -5750,7 +5750,7 @@
      "label": "綜合",
      "who": "導師"
     },
-    "二6": {
+    "四4": {
      "type": "subject",
      "label": "英語",
      "who": "英語丁",
@@ -5778,14 +5778,14 @@
      "room": "操場／體育館",
      "block": false
     },
-    "一7": {
+    "二5": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丁",
      "room": "音樂教室",
      "block": false
     },
-    "二5": {
+    "四2": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丁",
@@ -5827,7 +5827,7 @@
      "room": "原班教室",
      "block": false
     },
-    "二2": {
+    "二4": {
      "type": "subject",
      "label": "社會",
      "who": "社會甲",
@@ -5841,7 +5841,7 @@
      "room": "原班教室",
      "block": false
     },
-    "五4": {
+    "五6": {
      "type": "subject",
      "label": "社會",
      "who": "社會甲",
@@ -5930,7 +5930,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "一5": {
+    "一7": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂丁",
@@ -5944,7 +5944,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "二1": {
+    "一1": {
      "type": "subject",
      "label": "自然",
      "who": "自然丁",
@@ -6062,7 +6062,7 @@
      "room": "原班教室",
      "block": false
     },
-    "一6": {
+    "二7": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
@@ -6076,7 +6076,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "四3": {
+    "三4": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂戊",
@@ -6132,7 +6132,7 @@
      "room": "原班教室",
      "block": false
     },
-    "二3": {
+    "二6": {
      "type": "subject",
      "label": "社會",
      "who": "社會甲",
@@ -6221,14 +6221,14 @@
      "room": "操場／體育館",
      "block": false
     },
-    "二7": {
+    "四2": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
      "room": "操場／體育館",
      "block": false
     },
-    "一4": {
+    "二6": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂戊",
@@ -6367,14 +6367,14 @@
      "room": "操場／體育館",
      "block": false
     },
-    "五3": {
+    "二1": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
      "room": "操場／體育館",
      "block": false
     },
-    "二7": {
+    "一4": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂戊",
@@ -6388,7 +6388,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "三4": {
+    "五4": {
      "type": "subject",
      "label": "自然",
      "who": "自然戊",
@@ -6416,21 +6416,14 @@
      "room": "電腦教室",
      "block": false
     },
-    "五2": {
+    "五5": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
      "room": "原班教室",
      "block": false
     },
-    "一4": {
-     "type": "subject",
-     "label": "社會",
-     "who": "社會乙",
-     "room": "原班教室",
-     "block": false
-    },
-    "二6": {
+    "二2": {
      "type": "subject",
      "label": "社會",
      "who": "社會乙",
@@ -6438,6 +6431,13 @@
      "block": false
     },
     "四3": {
+     "type": "subject",
+     "label": "社會",
+     "who": "社會乙",
+     "room": "原班教室",
+     "block": false
+    },
+    "五2": {
      "type": "subject",
      "label": "社會",
      "who": "社會乙",
@@ -6492,7 +6492,7 @@
      "label": "綜合",
      "who": "導師"
     },
-    "一5": {
+    "二1": {
      "type": "subject",
      "label": "英語",
      "who": "英語戊",
@@ -6506,6 +6506,13 @@
      "room": "原班教室",
      "block": false
     },
+    "三2": {
+     "type": "subject",
+     "label": "體育",
+     "who": "體育戊",
+     "room": "操場／體育館",
+     "block": false
+    },
     "四1": {
      "type": "subject",
      "label": "體育",
@@ -6513,21 +6520,14 @@
      "room": "操場／體育館",
      "block": false
     },
-    "五6": {
-     "type": "subject",
-     "label": "體育",
-     "who": "體育戊",
-     "room": "操場／體育館",
-     "block": false
-    },
-    "二4": {
+    "一2": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂戊",
      "room": "音樂教室",
      "block": false
     },
-    "三4": {
+    "二7": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂戊",
@@ -6562,7 +6562,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "五1": {
+    "二3": {
      "type": "subject",
      "label": "健康",
      "who": "健康乙",
@@ -6576,7 +6576,7 @@
      "room": "原班教室",
      "block": false
     },
-    "二2": {
+    "三4": {
      "type": "subject",
      "label": "社會",
      "who": "社會乙",
@@ -6666,7 +6666,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "一6": {
+    "一1": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂戊",
@@ -6708,21 +6708,14 @@
      "room": "電腦教室",
      "block": false
     },
-    "五2": {
+    "四3": {
      "type": "subject",
      "label": "健康",
      "who": "健康丙",
      "room": "原班教室",
      "block": false
     },
-    "一5": {
-     "type": "subject",
-     "label": "社會",
-     "who": "社會乙",
-     "room": "原班教室",
-     "block": false
-    },
-    "三4": {
+    "二3": {
      "type": "subject",
      "label": "社會",
      "who": "社會乙",
@@ -6730,6 +6723,13 @@
      "block": false
     },
     "四2": {
+     "type": "subject",
+     "label": "社會",
+     "who": "社會乙",
+     "room": "原班教室",
+     "block": false
+    },
+    "五5": {
      "type": "subject",
      "label": "社會",
      "who": "社會乙",
@@ -6805,21 +6805,21 @@
      "room": "操場／體育館",
      "block": false
     },
-    "四2": {
+    "五2": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
      "room": "操場／體育館",
      "block": false
     },
-    "二2": {
+    "三3": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂戊",
      "room": "音樂教室",
      "block": false
     },
-    "三3": {
+    "四3": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂戊",
@@ -6861,7 +6861,7 @@
      "room": "原班教室",
      "block": false
     },
-    "一3": {
+    "二4": {
      "type": "subject",
      "label": "社會",
      "who": "社會乙",
@@ -6875,7 +6875,7 @@
      "room": "原班教室",
      "block": false
     },
-    "五6": {
+    "四4": {
      "type": "subject",
      "label": "社會",
      "who": "社會乙",
@@ -6951,7 +6951,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "三2": {
+    "二2": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
@@ -6972,7 +6972,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "二4": {
+    "三4": {
      "type": "subject",
      "label": "自然",
      "who": "自然戊",
@@ -7000,7 +7000,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "二3": {
+    "四4": {
      "type": "subject",
      "label": "健康",
      "who": "健康丙",
@@ -7097,7 +7097,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "五7": {
+    "五3": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
@@ -7139,7 +7139,7 @@
      "room": "自然教室",
      "block": true
     },
-    "五2": {
+    "二2": {
      "type": "subject",
      "label": "資訊",
      "who": "資訊乙",
@@ -7236,14 +7236,14 @@
      "room": "原班教室",
      "block": false
     },
-    "二1": {
+    "一6": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
      "room": "操場／體育館",
      "block": false
     },
-    "五2": {
+    "五6": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
@@ -7264,7 +7264,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "三3": {
+    "二2": {
      "type": "subject",
      "label": "自然",
      "who": "自然己",
@@ -7306,14 +7306,14 @@
      "room": "原班教室",
      "block": false
     },
-    "二2": {
+    "二3": {
      "type": "subject",
      "label": "社會",
      "who": "社會丙",
      "room": "原班教室",
      "block": false
     },
-    "三2": {
+    "三3": {
      "type": "subject",
      "label": "社會",
      "who": "社會丙",
@@ -7382,14 +7382,14 @@
      "room": "原班教室",
      "block": false
     },
-    "二2": {
+    "三3": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
      "room": "操場／體育館",
      "block": false
     },
-    "三3": {
+    "五7": {
      "type": "subject",
      "label": "體育",
      "who": "體育戊",
@@ -7438,7 +7438,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "二6": {
+    "二5": {
      "type": "subject",
      "label": "健康",
      "who": "健康丙",
@@ -7452,7 +7452,7 @@
      "room": "原班教室",
      "block": false
     },
-    "二1": {
+    "四1": {
      "type": "subject",
      "label": "社會",
      "who": "社會丙",
@@ -7514,7 +7514,7 @@
      "label": "綜合",
      "who": "導師"
     },
-    "二6": {
+    "二5": {
      "type": "subject",
      "label": "英語",
      "who": "英語己",
@@ -7528,28 +7528,28 @@
      "room": "原班教室",
      "block": false
     },
-    "二7": {
+    "一1": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
      "room": "操場／體育館",
      "block": false
     },
-    "四1": {
+    "五6": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
      "room": "操場／體育館",
      "block": false
     },
-    "二1": {
+    "一6": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂己",
      "room": "音樂教室",
      "block": false
     },
-    "五6": {
+    "四4": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂己",
@@ -7584,7 +7584,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "二5": {
+    "二6": {
      "type": "subject",
      "label": "健康",
      "who": "健康丙",
@@ -7598,7 +7598,7 @@
      "room": "原班教室",
      "block": false
     },
-    "四2": {
+    "四3": {
      "type": "subject",
      "label": "社會",
      "who": "社會丙",
@@ -7660,7 +7660,7 @@
      "label": "閩南語",
      "who": "閩南語乙"
     },
-    "二1": {
+    "二6": {
      "type": "subject",
      "label": "英語",
      "who": "英語己",
@@ -7674,7 +7674,7 @@
      "room": "原班教室",
      "block": false
     },
-    "四3": {
+    "二7": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
@@ -7751,7 +7751,7 @@
      "room": "原班教室",
      "block": false
     },
-    "四4": {
+    "三2": {
      "type": "subject",
      "label": "社會",
      "who": "社會丙",
@@ -7806,7 +7806,7 @@
      "label": "綜合",
      "who": "導師"
     },
-    "二2": {
+    "一1": {
      "type": "subject",
      "label": "英語",
      "who": "英語己",
@@ -7827,7 +7827,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "五2": {
+    "四3": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
@@ -7890,7 +7890,7 @@
      "room": "原班教室",
      "block": false
     },
-    "二3": {
+    "四4": {
      "type": "subject",
      "label": "社會",
      "who": "社會丙",
@@ -7973,14 +7973,14 @@
      "room": "操場／體育館",
      "block": false
     },
-    "五3": {
+    "五7": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
      "room": "操場／體育館",
      "block": false
     },
-    "一6": {
+    "二2": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂己",
@@ -8111,14 +8111,14 @@
      "room": "原班教室",
      "block": false
     },
-    "五5": {
+    "五2": {
      "type": "subject",
      "label": "英語",
      "who": "英語己",
      "room": "原班教室",
      "block": false
     },
-    "一1": {
+    "二3": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
@@ -8132,7 +8132,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "四2": {
+    "四1": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂己",
@@ -8195,7 +8195,7 @@
      "room": "原班教室",
      "block": false
     },
-    "五2": {
+    "五4": {
      "type": "subject",
      "label": "社會",
      "who": "社會丁",
@@ -8250,28 +8250,28 @@
      "label": "綜合",
      "who": "導師"
     },
-    "一3": {
-     "type": "subject",
-     "label": "英語",
-     "who": "英語己",
-     "room": "原班教室",
-     "block": false
-    },
-    "四4": {
-     "type": "subject",
-     "label": "英語",
-     "who": "英語己",
-     "room": "原班教室",
-     "block": false
-    },
     "二3": {
+     "type": "subject",
+     "label": "英語",
+     "who": "英語己",
+     "room": "原班教室",
+     "block": false
+    },
+    "五5": {
+     "type": "subject",
+     "label": "英語",
+     "who": "英語己",
+     "room": "原班教室",
+     "block": false
+    },
+    "一2": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
      "room": "操場／體育館",
      "block": false
     },
-    "五6": {
+    "四1": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
@@ -8292,7 +8292,7 @@
      "room": "音樂教室",
      "block": false
     },
-    "四3": {
+    "四2": {
      "type": "subject",
      "label": "自然",
      "who": "自然庚",
@@ -8320,7 +8320,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "三2": {
+    "二4": {
      "type": "subject",
      "label": "健康",
      "who": "健康丙",
@@ -8341,7 +8341,7 @@
      "room": "原班教室",
      "block": false
     },
-    "五5": {
+    "五3": {
      "type": "subject",
      "label": "社會",
      "who": "社會丁",
@@ -8410,7 +8410,7 @@
      "room": "原班教室",
      "block": false
     },
-    "一2": {
+    "二2": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
@@ -8466,7 +8466,7 @@
      "room": "電腦教室",
      "block": false
     },
-    "四3": {
+    "一3": {
      "type": "subject",
      "label": "健康",
      "who": "健康丙",
@@ -8480,7 +8480,7 @@
      "room": "原班教室",
      "block": false
     },
-    "二5": {
+    "二3": {
      "type": "subject",
      "label": "社會",
      "who": "社會丁",
@@ -8548,7 +8548,7 @@
      "label": "閩南語",
      "who": "閩南語丁"
     },
-    "四3": {
+    "一3": {
      "type": "subject",
      "label": "英語",
      "who": "英語己",
@@ -8569,7 +8569,7 @@
      "room": "操場／體育館",
      "block": false
     },
-    "二2": {
+    "五3": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
@@ -8625,6 +8625,13 @@
      "room": "原班教室",
      "block": false
     },
+    "一4": {
+     "type": "subject",
+     "label": "社會",
+     "who": "社會丁",
+     "room": "原班教室",
+     "block": false
+    },
     "三2": {
      "type": "subject",
      "label": "社會",
@@ -8633,13 +8640,6 @@
      "block": false
     },
     "四2": {
-     "type": "subject",
-     "label": "社會",
-     "who": "社會丁",
-     "room": "原班教室",
-     "block": false
-    },
-    "五3": {
      "type": "subject",
      "label": "社會",
      "who": "社會丁",
@@ -8721,21 +8721,21 @@
      "room": "操場／體育館",
      "block": false
     },
-    "五7": {
+    "五2": {
      "type": "subject",
      "label": "體育",
      "who": "體育己",
      "room": "操場／體育館",
      "block": false
     },
-    "二7": {
+    "二3": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂己",
      "room": "音樂教室",
      "block": false
     },
-    "四1": {
+    "三2": {
      "type": "subject",
      "label": "音樂",
      "who": "音樂己",
@@ -8846,7 +8846,7 @@
      "label": "綜合",
      "who": "導師"
     },
-    "二3": {
+    "一5": {
      "type": "subject",
      "label": "英語",
      "who": "英語己",
@@ -9010,7 +9010,7 @@
      "block": false,
      "conflict": null
     },
-    "五4": {
+    "三3": {
      "type": "subject",
      "label": "1年7班",
      "subject": "英語",
@@ -9042,7 +9042,7 @@
      "block": false,
      "conflict": null
     },
-    "三3": {
+    "五4": {
      "type": "subject",
      "label": "1年11班",
      "subject": "英語",
@@ -9090,7 +9090,7 @@
      "block": false,
      "conflict": null
     },
-    "四3": {
+    "一3": {
      "type": "subject",
      "label": "2年5班",
      "subject": "英語",
@@ -9098,7 +9098,7 @@
      "block": false,
      "conflict": null
     },
-    "一3": {
+    "四3": {
      "type": "subject",
      "label": "2年6班",
      "subject": "英語",
@@ -9106,7 +9106,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "二3": {
      "type": "subject",
      "label": "2年7班",
      "subject": "英語",
@@ -9125,8 +9125,8 @@
    },
    "per_day": [
     4,
-    5,
-    3,
+    6,
+    2,
     4,
     4
    ]
@@ -9166,7 +9166,7 @@
      "block": false,
      "conflict": null
     },
-    "二4": {
+    "五1": {
      "type": "subject",
      "label": "2年11班",
      "subject": "英語",
@@ -9182,7 +9182,7 @@
      "block": false,
      "conflict": null
     },
-    "二5": {
+    "二2": {
      "type": "subject",
      "label": "3年1班",
      "subject": "英語",
@@ -9190,7 +9190,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "二5": {
      "type": "subject",
      "label": "3年2班",
      "subject": "英語",
@@ -9198,7 +9198,7 @@
      "block": false,
      "conflict": null
     },
-    "四5": {
+    "三2": {
      "type": "subject",
      "label": "3年2班",
      "subject": "英語",
@@ -9238,7 +9238,7 @@
      "block": false,
      "conflict": null
     },
-    "二6": {
+    "一4": {
      "type": "subject",
      "label": "3年5班",
      "subject": "英語",
@@ -9254,7 +9254,7 @@
      "block": false,
      "conflict": null
     },
-    "一4": {
+    "一1": {
      "type": "subject",
      "label": "3年6班",
      "subject": "英語",
@@ -9262,7 +9262,7 @@
      "block": false,
      "conflict": null
     },
-    "五1": {
+    "二4": {
      "type": "subject",
      "label": "3年6班",
      "subject": "英語",
@@ -9304,10 +9304,10 @@
     }
    },
    "per_day": [
-    3,
+    4,
     5,
     3,
-    6,
+    5,
     4
    ]
   },
@@ -9349,7 +9349,7 @@
      "block": false,
      "conflict": null
     },
-    "二6": {
+    "三4": {
      "type": "subject",
      "label": "3年11班",
      "subject": "英語",
@@ -9381,14 +9381,6 @@
      "block": false,
      "conflict": null
     },
-    "一2": {
-     "type": "subject",
-     "label": "4年1班",
-     "subject": "英語",
-     "room": "原班教室",
-     "block": false,
-     "conflict": null
-    },
     "四2": {
      "type": "subject",
      "label": "4年1班",
@@ -9397,7 +9389,15 @@
      "block": false,
      "conflict": null
     },
-    "四4": {
+    "五4": {
+     "type": "subject",
+     "label": "4年1班",
+     "subject": "英語",
+     "room": "原班教室",
+     "block": false,
+     "conflict": null
+    },
+    "二5": {
      "type": "subject",
      "label": "4年2班",
      "subject": "英語",
@@ -9445,6 +9445,14 @@
      "block": false,
      "conflict": null
     },
+    "二6": {
+     "type": "subject",
+     "label": "4年5班",
+     "subject": "英語",
+     "room": "原班教室",
+     "block": false,
+     "conflict": null
+    },
     "四3": {
      "type": "subject",
      "label": "4年5班",
@@ -9453,15 +9461,7 @@
      "block": false,
      "conflict": null
     },
-    "五4": {
-     "type": "subject",
-     "label": "4年5班",
-     "subject": "英語",
-     "room": "原班教室",
-     "block": false,
-     "conflict": null
-    },
-    "三3": {
+    "二1": {
      "type": "subject",
      "label": "4年6班",
      "subject": "英語",
@@ -9469,7 +9469,7 @@
      "block": false,
      "conflict": null
     },
-    "五2": {
+    "四4": {
      "type": "subject",
      "label": "4年6班",
      "subject": "英語",
@@ -9479,11 +9479,11 @@
     }
    },
    "per_day": [
-    4,
-    4,
+    3,
+    6,
     2,
     6,
-    4
+    3
    ]
   },
   "英語丁": {
@@ -9516,7 +9516,7 @@
      "block": false,
      "conflict": null
     },
-    "五1": {
+    "三2": {
      "type": "subject",
      "label": "4年8班",
      "subject": "英語",
@@ -9564,7 +9564,7 @@
      "block": false,
      "conflict": null
     },
-    "四4": {
+    "三3": {
      "type": "subject",
      "label": "4年11班",
      "subject": "英語",
@@ -9580,7 +9580,7 @@
      "block": false,
      "conflict": null
     },
-    "四3": {
+    "四6": {
      "type": "subject",
      "label": "4年12班",
      "subject": "英語",
@@ -9620,7 +9620,7 @@
      "block": false,
      "conflict": null
     },
-    "二6": {
+    "四4": {
      "type": "subject",
      "label": "5年3班",
      "subject": "英語",
@@ -9655,10 +9655,10 @@
    },
    "per_day": [
     5,
-    5,
-    1,
     4,
-    5
+    3,
+    4,
+    4
    ]
   },
   "英語戊": {
@@ -9735,7 +9735,7 @@
      "block": false,
      "conflict": null
     },
-    "一5": {
+    "二1": {
      "type": "subject",
      "label": "5年8班",
      "subject": "英語",
@@ -9849,8 +9849,8 @@
     }
    },
    "per_day": [
-    6,
     5,
+    6,
     3,
     0,
     6
@@ -9862,7 +9862,7 @@
    ],
    "hours": 20,
    "cells": {
-    "二6": {
+    "二5": {
      "type": "subject",
      "label": "6年3班",
      "subject": "英語",
@@ -9878,7 +9878,7 @@
      "block": false,
      "conflict": null
     },
-    "二1": {
+    "二6": {
      "type": "subject",
      "label": "6年4班",
      "subject": "英語",
@@ -9894,7 +9894,7 @@
      "block": false,
      "conflict": null
     },
-    "二2": {
+    "一1": {
      "type": "subject",
      "label": "6年5班",
      "subject": "英語",
@@ -9934,7 +9934,7 @@
      "block": false,
      "conflict": null
     },
-    "五5": {
+    "五2": {
      "type": "subject",
      "label": "6年7班",
      "subject": "英語",
@@ -9942,7 +9942,7 @@
      "block": false,
      "conflict": null
     },
-    "一3": {
+    "二3": {
      "type": "subject",
      "label": "6年8班",
      "subject": "英語",
@@ -9950,7 +9950,7 @@
      "block": false,
      "conflict": null
     },
-    "四4": {
+    "五5": {
      "type": "subject",
      "label": "6年8班",
      "subject": "英語",
@@ -9974,7 +9974,7 @@
      "block": false,
      "conflict": null
     },
-    "四3": {
+    "一3": {
      "type": "subject",
      "label": "6年10班",
      "subject": "英語",
@@ -10006,7 +10006,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
+    "一5": {
      "type": "subject",
      "label": "6年12班",
      "subject": "英語",
@@ -10024,11 +10024,11 @@
     }
    },
    "per_day": [
+    6,
     4,
-    5,
     2,
-    4,
-    5
+    2,
+    6
    ]
   },
   "體育甲": {
@@ -10039,13 +10039,13 @@
    "cells": {
     "五1": {
      "type": "subject",
-     "label": "2年3班",
+     "label": "1年6班",
      "subject": "體育",
      "room": "操場／體育館",
      "block": false,
      "conflict": "wish"
     },
-    "一3": {
+    "二3": {
      "type": "subject",
      "label": "1年1班",
      "subject": "體育",
@@ -10053,7 +10053,7 @@
      "block": false,
      "conflict": null
     },
-    "四1": {
+    "五4": {
      "type": "subject",
      "label": "1年2班",
      "subject": "體育",
@@ -10061,7 +10061,7 @@
      "block": false,
      "conflict": null
     },
-    "三4": {
+    "四4": {
      "type": "subject",
      "label": "1年3班",
      "subject": "體育",
@@ -10069,7 +10069,7 @@
      "block": false,
      "conflict": null
     },
-    "四3": {
+    "二2": {
      "type": "subject",
      "label": "1年4班",
      "subject": "體育",
@@ -10077,7 +10077,7 @@
      "block": false,
      "conflict": null
     },
-    "二1": {
+    "一1": {
      "type": "subject",
      "label": "1年5班",
      "subject": "體育",
@@ -10085,15 +10085,7 @@
      "block": false,
      "conflict": null
     },
-    "五4": {
-     "type": "subject",
-     "label": "1年6班",
-     "subject": "體育",
-     "room": "操場／體育館",
-     "block": false,
-     "conflict": null
-    },
-    "一2": {
+    "五2": {
      "type": "subject",
      "label": "1年7班",
      "subject": "體育",
@@ -10101,7 +10093,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "一3": {
      "type": "subject",
      "label": "1年8班",
      "subject": "體育",
@@ -10109,7 +10101,7 @@
      "block": false,
      "conflict": null
     },
-    "三3": {
+    "五3": {
      "type": "subject",
      "label": "1年9班",
      "subject": "體育",
@@ -10117,7 +10109,7 @@
      "block": false,
      "conflict": null
     },
-    "一1": {
+    "二4": {
      "type": "subject",
      "label": "1年10班",
      "subject": "體育",
@@ -10125,7 +10117,7 @@
      "block": false,
      "conflict": null
     },
-    "一4": {
+    "一2": {
      "type": "subject",
      "label": "1年11班",
      "subject": "體育",
@@ -10133,7 +10125,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
+    "四1": {
      "type": "subject",
      "label": "1年12班",
      "subject": "體育",
@@ -10141,7 +10133,7 @@
      "block": false,
      "conflict": null
     },
-    "五3": {
+    "二1": {
      "type": "subject",
      "label": "2年1班",
      "subject": "體育",
@@ -10149,7 +10141,7 @@
      "block": false,
      "conflict": null
     },
-    "四2": {
+    "二7": {
      "type": "subject",
      "label": "2年2班",
      "subject": "體育",
@@ -10157,7 +10149,15 @@
      "block": false,
      "conflict": null
     },
-    "五2": {
+    "四3": {
+     "type": "subject",
+     "label": "2年3班",
+     "subject": "體育",
+     "room": "操場／體育館",
+     "block": false,
+     "conflict": null
+    },
+    "一4": {
      "type": "subject",
      "label": "2年4班",
      "subject": "體育",
@@ -10165,7 +10165,7 @@
      "block": false,
      "conflict": null
     },
-    "四4": {
+    "二6": {
      "type": "subject",
      "label": "2年5班",
      "subject": "體育",
@@ -10173,7 +10173,7 @@
      "block": false,
      "conflict": null
     },
-    "二6": {
+    "三2": {
      "type": "subject",
      "label": "2年6班",
      "subject": "體育",
@@ -10181,7 +10181,7 @@
      "block": false,
      "conflict": null
     },
-    "二2": {
+    "四2": {
      "type": "subject",
      "label": "2年7班",
      "subject": "體育",
@@ -10189,7 +10189,7 @@
      "block": false,
      "conflict": null
     },
-    "二7": {
+    "三3": {
      "type": "subject",
      "label": "2年8班",
      "subject": "體育",
@@ -10200,8 +10200,8 @@
    },
    "per_day": [
     4,
-    5,
-    3,
+    6,
+    2,
     4,
     4
    ]
@@ -10268,7 +10268,7 @@
      "block": false,
      "conflict": null
     },
-    "一3": {
+    "一4": {
      "type": "subject",
      "label": "3年3班",
      "subject": "體育",
@@ -10316,7 +10316,7 @@
      "block": false,
      "conflict": null
     },
-    "一1": {
+    "一3": {
      "type": "subject",
      "label": "3年6班",
      "subject": "體育",
@@ -10348,7 +10348,7 @@
      "block": false,
      "conflict": null
     },
-    "二2": {
+    "一1": {
      "type": "subject",
      "label": "3年8班",
      "subject": "體育",
@@ -10356,7 +10356,7 @@
      "block": false,
      "conflict": null
     },
-    "五4": {
+    "二2": {
      "type": "subject",
      "label": "3年8班",
      "subject": "體育",
@@ -10366,11 +10366,11 @@
     }
    },
    "per_day": [
-    3,
+    4,
     5,
     2,
     5,
-    4
+    3
    ]
   },
   "體育丙": {
@@ -10395,7 +10395,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "二3": {
      "type": "subject",
      "label": "3年10班",
      "subject": "體育",
@@ -10403,7 +10403,7 @@
      "block": false,
      "conflict": null
     },
-    "五2": {
+    "三2": {
      "type": "subject",
      "label": "3年10班",
      "subject": "體育",
@@ -10419,7 +10419,7 @@
      "block": false,
      "conflict": null
     },
-    "五4": {
+    "五2": {
      "type": "subject",
      "label": "3年11班",
      "subject": "體育",
@@ -10443,7 +10443,7 @@
      "block": false,
      "conflict": null
     },
-    "一4": {
+    "一2": {
      "type": "subject",
      "label": "4年1班",
      "subject": "體育",
@@ -10451,7 +10451,7 @@
      "block": false,
      "conflict": null
     },
-    "四1": {
+    "二5": {
      "type": "subject",
      "label": "4年1班",
      "subject": "體育",
@@ -10491,7 +10491,7 @@
      "block": false,
      "conflict": null
     },
-    "一2": {
+    "二1": {
      "type": "subject",
      "label": "4年4班",
      "subject": "體育",
@@ -10499,7 +10499,7 @@
      "block": false,
      "conflict": null
     },
-    "二1": {
+    "三4": {
      "type": "subject",
      "label": "4年4班",
      "subject": "體育",
@@ -10531,7 +10531,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
+    "四1": {
      "type": "subject",
      "label": "4年6班",
      "subject": "體育",
@@ -10541,11 +10541,11 @@
     }
    },
    "per_day": [
-    4,
+    3,
+    6,
+    3,
     5,
-    2,
-    5,
-    4
+    3
    ]
   },
   "體育丁": {
@@ -10736,7 +10736,7 @@
     },
     "五6": {
      "type": "subject",
-     "label": "5年8班",
+     "label": "6年1班",
      "subject": "體育",
      "room": "操場／體育館",
      "block": false,
@@ -10744,13 +10744,13 @@
     },
     "五7": {
      "type": "subject",
-     "label": "5年12班",
+     "label": "6年2班",
      "subject": "體育",
      "room": "操場／體育館",
      "block": false,
      "conflict": "wish"
     },
-    "一6": {
+    "二7": {
      "type": "subject",
      "label": "5年5班",
      "subject": "體育",
@@ -10774,7 +10774,7 @@
      "block": false,
      "conflict": null
     },
-    "二7": {
+    "四2": {
      "type": "subject",
      "label": "5年6班",
      "subject": "體育",
@@ -10790,9 +10790,17 @@
      "block": false,
      "conflict": null
     },
-    "五3": {
+    "二1": {
      "type": "subject",
      "label": "5年7班",
+     "subject": "體育",
+     "room": "操場／體育館",
+     "block": false,
+     "conflict": null
+    },
+    "三2": {
+     "type": "subject",
+     "label": "5年8班",
      "subject": "體育",
      "room": "操場／體育館",
      "block": false,
@@ -10830,7 +10838,7 @@
      "block": false,
      "conflict": null
     },
-    "四2": {
+    "五2": {
      "type": "subject",
      "label": "5年10班",
      "subject": "體育",
@@ -10846,7 +10854,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "二2": {
      "type": "subject",
      "label": "5年11班",
      "subject": "體育",
@@ -10862,25 +10870,17 @@
      "block": false,
      "conflict": null
     },
-    "二1": {
+    "五3": {
      "type": "subject",
-     "label": "6年1班",
+     "label": "5年12班",
      "subject": "體育",
      "room": "操場／體育館",
      "block": false,
      "conflict": null
     },
-    "五2": {
+    "一6": {
      "type": "subject",
      "label": "6年1班",
-     "subject": "體育",
-     "room": "操場／體育館",
-     "block": false,
-     "conflict": null
-    },
-    "二2": {
-     "type": "subject",
-     "label": "6年2班",
      "subject": "體育",
      "room": "操場／體育館",
      "block": false,
@@ -10916,7 +10916,7 @@
     },
     "五6": {
      "type": "subject",
-     "label": "6年8班",
+     "label": "6年3班",
      "subject": "體育",
      "room": "操場／體育館",
      "block": false,
@@ -10924,29 +10924,21 @@
     },
     "五7": {
      "type": "subject",
-     "label": "6年11班",
+     "label": "6年6班",
      "subject": "體育",
      "room": "操場／體育館",
      "block": false,
      "conflict": "wish"
     },
+    "一1": {
+     "type": "subject",
+     "label": "6年3班",
+     "subject": "體育",
+     "room": "操場／體育館",
+     "block": false,
+     "conflict": null
+    },
     "二7": {
-     "type": "subject",
-     "label": "6年3班",
-     "subject": "體育",
-     "room": "操場／體育館",
-     "block": false,
-     "conflict": null
-    },
-    "四1": {
-     "type": "subject",
-     "label": "6年3班",
-     "subject": "體育",
-     "room": "操場／體育館",
-     "block": false,
-     "conflict": null
-    },
-    "四3": {
      "type": "subject",
      "label": "6年4班",
      "subject": "體育",
@@ -10970,7 +10962,7 @@
      "block": false,
      "conflict": null
     },
-    "五2": {
+    "四3": {
      "type": "subject",
      "label": "6年5班",
      "subject": "體育",
@@ -10986,15 +10978,7 @@
      "block": false,
      "conflict": null
     },
-    "五3": {
-     "type": "subject",
-     "label": "6年6班",
-     "subject": "體育",
-     "room": "操場／體育館",
-     "block": false,
-     "conflict": null
-    },
-    "一1": {
+    "二3": {
      "type": "subject",
      "label": "6年7班",
      "subject": "體育",
@@ -11010,7 +10994,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
+    "一2": {
      "type": "subject",
      "label": "6年8班",
      "subject": "體育",
@@ -11018,7 +11002,15 @@
      "block": false,
      "conflict": null
     },
-    "一2": {
+    "四1": {
+     "type": "subject",
+     "label": "6年8班",
+     "subject": "體育",
+     "room": "操場／體育館",
+     "block": false,
+     "conflict": null
+    },
+    "二2": {
      "type": "subject",
      "label": "6年9班",
      "subject": "體育",
@@ -11042,7 +11034,7 @@
      "block": false,
      "conflict": null
     },
-    "二2": {
+    "五3": {
      "type": "subject",
      "label": "6年10班",
      "subject": "體育",
@@ -11051,6 +11043,14 @@
      "conflict": null
     },
     "二6": {
+     "type": "subject",
+     "label": "6年11班",
+     "subject": "體育",
+     "room": "操場／體育館",
+     "block": false,
+     "conflict": null
+    },
+    "五2": {
      "type": "subject",
      "label": "6年11班",
      "subject": "體育",
@@ -11120,7 +11120,7 @@
      "block": false,
      "conflict": null
     },
-    "四4": {
+    "二3": {
      "type": "subject",
      "label": "1年3班",
      "subject": "音樂",
@@ -11128,7 +11128,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
+    "四4": {
      "type": "subject",
      "label": "1年4班",
      "subject": "音樂",
@@ -11136,7 +11136,7 @@
      "block": false,
      "conflict": null
     },
-    "三3": {
+    "一4": {
      "type": "subject",
      "label": "1年5班",
      "subject": "音樂",
@@ -11168,7 +11168,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "一2": {
      "type": "subject",
      "label": "1年9班",
      "subject": "音樂",
@@ -11216,7 +11216,7 @@
      "block": false,
      "conflict": null
     },
-    "一2": {
+    "三2": {
      "type": "subject",
      "label": "2年3班",
      "subject": "音樂",
@@ -11266,9 +11266,9 @@
     }
    },
    "per_day": [
-    3,
+    4,
     6,
-    3,
+    2,
     4,
     4
    ]
@@ -11327,7 +11327,7 @@
      "block": false,
      "conflict": null
     },
-    "二7": {
+    "三3": {
      "type": "subject",
      "label": "3年2班",
      "subject": "音樂",
@@ -11351,7 +11351,7 @@
      "block": false,
      "conflict": null
     },
-    "一2": {
+    "四5": {
      "type": "subject",
      "label": "3年4班",
      "subject": "音樂",
@@ -11359,9 +11359,17 @@
      "block": false,
      "conflict": null
     },
-    "四5": {
+    "五1": {
      "type": "subject",
      "label": "3年4班",
+     "subject": "音樂",
+     "room": "音樂教室",
+     "block": false,
+     "conflict": null
+    },
+    "二7": {
+     "type": "subject",
+     "label": "3年5班",
      "subject": "音樂",
      "room": "音樂教室",
      "block": false,
@@ -11375,15 +11383,7 @@
      "block": false,
      "conflict": null
     },
-    "五4": {
-     "type": "subject",
-     "label": "3年5班",
-     "subject": "音樂",
-     "room": "音樂教室",
-     "block": false,
-     "conflict": null
-    },
-    "二6": {
+    "一2": {
      "type": "subject",
      "label": "3年6班",
      "subject": "音樂",
@@ -11434,8 +11434,8 @@
    },
    "per_day": [
     4,
-    6,
-    1,
+    5,
+    2,
     5,
     3
    ]
@@ -11470,7 +11470,7 @@
      "block": false,
      "conflict": null
     },
-    "四6": {
+    "四5": {
      "type": "subject",
      "label": "3年10班",
      "subject": "音樂",
@@ -11478,7 +11478,7 @@
      "block": false,
      "conflict": null
     },
-    "一4": {
+    "四1": {
      "type": "subject",
      "label": "3年11班",
      "subject": "音樂",
@@ -11486,7 +11486,7 @@
      "block": false,
      "conflict": null
     },
-    "四2": {
+    "五1": {
      "type": "subject",
      "label": "3年11班",
      "subject": "音樂",
@@ -11558,7 +11558,7 @@
      "block": false,
      "conflict": null
     },
-    "四5": {
+    "四2": {
      "type": "subject",
      "label": "4年4班",
      "subject": "音樂",
@@ -11574,7 +11574,7 @@
      "block": false,
      "conflict": null
     },
-    "四4": {
+    "二1": {
      "type": "subject",
      "label": "4年5班",
      "subject": "音樂",
@@ -11582,7 +11582,7 @@
      "block": false,
      "conflict": null
     },
-    "五1": {
+    "三3": {
      "type": "subject",
      "label": "4年5班",
      "subject": "音樂",
@@ -11608,10 +11608,10 @@
     }
    },
    "per_day": [
-    4,
-    5,
-    2,
+    3,
     6,
+    3,
+    5,
     3
    ]
   },
@@ -11669,7 +11669,7 @@
      "block": false,
      "conflict": null
     },
-    "二1": {
+    "三3": {
      "type": "subject",
      "label": "4年10班",
      "subject": "音樂",
@@ -11677,9 +11677,17 @@
      "block": false,
      "conflict": null
     },
-    "三3": {
+    "四5": {
      "type": "subject",
      "label": "4年10班",
+     "subject": "音樂",
+     "room": "音樂教室",
+     "block": false,
+     "conflict": null
+    },
+    "一3": {
+     "type": "subject",
+     "label": "4年11班",
      "subject": "音樂",
      "room": "音樂教室",
      "block": false,
@@ -11693,15 +11701,7 @@
      "block": false,
      "conflict": null
     },
-    "五4": {
-     "type": "subject",
-     "label": "4年11班",
-     "subject": "音樂",
-     "room": "音樂教室",
-     "block": false,
-     "conflict": null
-    },
-    "二7": {
+    "一1": {
      "type": "subject",
      "label": "4年12班",
      "subject": "音樂",
@@ -11709,7 +11709,7 @@
      "block": false,
      "conflict": null
     },
-    "四4": {
+    "五4": {
      "type": "subject",
      "label": "4年12班",
      "subject": "音樂",
@@ -11725,7 +11725,7 @@
      "block": false,
      "conflict": null
     },
-    "五7": {
+    "五5": {
      "type": "subject",
      "label": "5年1班",
      "subject": "音樂",
@@ -11749,14 +11749,6 @@
      "block": false,
      "conflict": null
     },
-    "一7": {
-     "type": "subject",
-     "label": "5年3班",
-     "subject": "音樂",
-     "room": "音樂教室",
-     "block": false,
-     "conflict": null
-    },
     "二5": {
      "type": "subject",
      "label": "5年3班",
@@ -11765,7 +11757,15 @@
      "block": false,
      "conflict": null
     },
-    "一5": {
+    "四2": {
+     "type": "subject",
+     "label": "5年3班",
+     "subject": "音樂",
+     "room": "音樂教室",
+     "block": false,
+     "conflict": null
+    },
+    "一7": {
      "type": "subject",
      "label": "5年4班",
      "subject": "音樂",
@@ -11783,10 +11783,10 @@
     }
    },
    "per_day": [
+    5,
     4,
-    6,
     2,
-    4,
+    5,
     4
    ]
   },
@@ -11821,7 +11821,7 @@
      "label": "希望不排",
      "note": "接送小孩"
     },
-    "四3": {
+    "三4": {
      "type": "subject",
      "label": "5年5班",
      "subject": "音樂",
@@ -11837,7 +11837,7 @@
      "block": false,
      "conflict": null
     },
-    "一4": {
+    "二6": {
      "type": "subject",
      "label": "5年6班",
      "subject": "音樂",
@@ -11853,7 +11853,7 @@
      "block": false,
      "conflict": null
     },
-    "二7": {
+    "一4": {
      "type": "subject",
      "label": "5年7班",
      "subject": "音樂",
@@ -11869,7 +11869,7 @@
      "block": false,
      "conflict": null
     },
-    "二4": {
+    "一2": {
      "type": "subject",
      "label": "5年8班",
      "subject": "音樂",
@@ -11877,7 +11877,7 @@
      "block": false,
      "conflict": null
     },
-    "三4": {
+    "二7": {
      "type": "subject",
      "label": "5年8班",
      "subject": "音樂",
@@ -11885,7 +11885,7 @@
      "block": false,
      "conflict": null
     },
-    "一6": {
+    "一1": {
      "type": "subject",
      "label": "5年9班",
      "subject": "音樂",
@@ -11901,7 +11901,7 @@
      "block": false,
      "conflict": null
     },
-    "二2": {
+    "三3": {
      "type": "subject",
      "label": "5年10班",
      "subject": "音樂",
@@ -11909,7 +11909,7 @@
      "block": false,
      "conflict": null
     },
-    "三3": {
+    "四3": {
      "type": "subject",
      "label": "5年10班",
      "subject": "音樂",
@@ -11983,8 +11983,8 @@
     }
    },
    "per_day": [
-    5,
     6,
+    5,
     3,
     3,
     3
@@ -11996,7 +11996,7 @@
    ],
    "hours": 20,
    "cells": {
-    "二1": {
+    "一6": {
      "type": "subject",
      "label": "6年3班",
      "subject": "音樂",
@@ -12004,7 +12004,7 @@
      "block": false,
      "conflict": null
     },
-    "五6": {
+    "四4": {
      "type": "subject",
      "label": "6年3班",
      "subject": "音樂",
@@ -12044,7 +12044,7 @@
      "block": false,
      "conflict": null
     },
-    "一6": {
+    "二2": {
      "type": "subject",
      "label": "6年6班",
      "subject": "音樂",
@@ -12060,7 +12060,7 @@
      "block": false,
      "conflict": null
     },
-    "四2": {
+    "四1": {
      "type": "subject",
      "label": "6年7班",
      "subject": "音樂",
@@ -12124,7 +12124,7 @@
      "block": false,
      "conflict": null
     },
-    "二7": {
+    "二3": {
      "type": "subject",
      "label": "6年11班",
      "subject": "音樂",
@@ -12132,7 +12132,7 @@
      "block": false,
      "conflict": null
     },
-    "四1": {
+    "三2": {
      "type": "subject",
      "label": "6年11班",
      "subject": "音樂",
@@ -12160,9 +12160,9 @@
    "per_day": [
     5,
     4,
-    2,
     3,
-    6
+    3,
+    5
    ]
   },
   "自然甲": {
@@ -12171,7 +12171,7 @@
    ],
    "hours": 21,
    "cells": {
-    "二4": {
+    "一2": {
      "type": "subject",
      "label": "3年1班",
      "subject": "自然",
@@ -12203,7 +12203,7 @@
      "block": false,
      "conflict": null
     },
-    "二5": {
+    "二3": {
      "type": "subject",
      "label": "3年2班",
      "subject": "自然",
@@ -12211,7 +12211,7 @@
      "block": true,
      "conflict": null
     },
-    "二6": {
+    "二4": {
      "type": "subject",
      "label": "3年2班",
      "subject": "自然",
@@ -12267,7 +12267,7 @@
      "block": true,
      "conflict": null
     },
-    "二3": {
+    "三3": {
      "type": "subject",
      "label": "3年5班",
      "subject": "自然",
@@ -12315,7 +12315,7 @@
      "block": true,
      "conflict": null
     },
-    "一1": {
+    "二6": {
      "type": "subject",
      "label": "3年7班",
      "subject": "自然",
@@ -12342,8 +12342,8 @@
    },
    "per_day": [
     3,
-    6,
-    2,
+    5,
+    3,
     6,
     4
    ]
@@ -12354,7 +12354,7 @@
    ],
    "hours": 21,
    "cells": {
-    "三4": {
+    "二4": {
      "type": "subject",
      "label": "3年8班",
      "subject": "自然",
@@ -12362,7 +12362,7 @@
      "block": false,
      "conflict": null
     },
-    "一2": {
+    "四5": {
      "type": "subject",
      "label": "3年8班",
      "subject": "自然",
@@ -12370,7 +12370,7 @@
      "block": true,
      "conflict": null
     },
-    "一3": {
+    "四6": {
      "type": "subject",
      "label": "3年8班",
      "subject": "自然",
@@ -12426,7 +12426,7 @@
      "block": true,
      "conflict": null
     },
-    "五3": {
+    "二3": {
      "type": "subject",
      "label": "3年11班",
      "subject": "自然",
@@ -12434,15 +12434,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
-     "type": "subject",
-     "label": "3年11班",
-     "subject": "自然",
-     "room": "自然教室",
-     "block": true,
-     "conflict": null
-    },
-    "二4": {
+    "五3": {
      "type": "subject",
      "label": "3年11班",
      "subject": "自然",
@@ -12451,6 +12443,14 @@
      "conflict": null
     },
     "五4": {
+     "type": "subject",
+     "label": "3年11班",
+     "subject": "自然",
+     "room": "自然教室",
+     "block": true,
+     "conflict": null
+    },
+    "一1": {
      "type": "subject",
      "label": "3年12班",
      "subject": "自然",
@@ -12498,7 +12498,7 @@
      "block": true,
      "conflict": null
     },
-    "一1": {
+    "五1": {
      "type": "subject",
      "label": "4年2班",
      "subject": "自然",
@@ -12506,7 +12506,7 @@
      "block": false,
      "conflict": null
     },
-    "四5": {
+    "一2": {
      "type": "subject",
      "label": "4年2班",
      "subject": "自然",
@@ -12514,7 +12514,7 @@
      "block": true,
      "conflict": null
     },
-    "四6": {
+    "一3": {
      "type": "subject",
      "label": "4年2班",
      "subject": "自然",
@@ -12526,9 +12526,9 @@
    "per_day": [
     4,
     6,
-    3,
+    2,
     5,
-    3
+    4
    ]
   },
   "自然丙": {
@@ -12585,7 +12585,7 @@
      "block": true,
      "conflict": null
     },
-    "三4": {
+    "一4": {
      "type": "subject",
      "label": "4年5班",
      "subject": "自然",
@@ -12689,7 +12689,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "三3": {
      "type": "subject",
      "label": "4年9班",
      "subject": "自然",
@@ -12697,7 +12697,7 @@
      "block": true,
      "conflict": null
     },
-    "三3": {
+    "三4": {
      "type": "subject",
      "label": "4年9班",
      "subject": "自然",
@@ -12707,9 +12707,9 @@
     }
    },
    "per_day": [
-    3,
+    4,
     5,
-    3,
+    2,
     6,
     4
    ]
@@ -12720,7 +12720,7 @@
    ],
    "hours": 21,
    "cells": {
-    "二6": {
+    "五4": {
      "type": "subject",
      "label": "4年10班",
      "subject": "自然",
@@ -12728,7 +12728,7 @@
      "block": false,
      "conflict": null
     },
-    "五3": {
+    "二5": {
      "type": "subject",
      "label": "4年10班",
      "subject": "自然",
@@ -12736,7 +12736,7 @@
      "block": true,
      "conflict": null
     },
-    "五4": {
+    "二6": {
      "type": "subject",
      "label": "4年10班",
      "subject": "自然",
@@ -12744,7 +12744,7 @@
      "block": true,
      "conflict": null
     },
-    "一1": {
+    "二3": {
      "type": "subject",
      "label": "4年11班",
      "subject": "自然",
@@ -12768,7 +12768,7 @@
      "block": true,
      "conflict": null
     },
-    "二5": {
+    "三2": {
      "type": "subject",
      "label": "4年12班",
      "subject": "自然",
@@ -12792,7 +12792,7 @@
      "block": true,
      "conflict": null
     },
-    "二4": {
+    "二2": {
      "type": "subject",
      "label": "5年1班",
      "subject": "自然",
@@ -12864,7 +12864,7 @@
      "block": true,
      "conflict": null
     },
-    "二1": {
+    "一1": {
      "type": "subject",
      "label": "5年4班",
      "subject": "自然",
@@ -12892,9 +12892,9 @@
    "per_day": [
     4,
     4,
-    1,
+    2,
     6,
-    6
+    5
    ]
   },
   "自然戊": {
@@ -12966,7 +12966,7 @@
      "block": true,
      "conflict": null
     },
-    "三4": {
+    "五4": {
      "type": "subject",
      "label": "5年7班",
      "subject": "自然",
@@ -13062,7 +13062,7 @@
      "block": true,
      "conflict": null
     },
-    "二4": {
+    "三4": {
      "type": "subject",
      "label": "5年11班",
      "subject": "自然",
@@ -13089,10 +13089,10 @@
    },
    "per_day": [
     6,
-    4,
+    3,
     3,
     4,
-    4
+    5
    ]
   },
   "自然己": {
@@ -13125,7 +13125,7 @@
      "block": true,
      "conflict": null
     },
-    "三3": {
+    "二2": {
      "type": "subject",
      "label": "6年1班",
      "subject": "自然",
@@ -13272,8 +13272,8 @@
    },
    "per_day": [
     6,
-    4,
-    3,
+    5,
+    2,
     2,
     6
    ]
@@ -13308,7 +13308,7 @@
      "block": true,
      "conflict": null
     },
-    "四3": {
+    "四2": {
      "type": "subject",
      "label": "6年8班",
      "subject": "自然",
@@ -13443,7 +13443,7 @@
    ],
    "hours": 24,
    "cells": {
-    "二2": {
+    "二4": {
      "type": "subject",
      "label": "3年1班",
      "subject": "資訊",
@@ -13467,7 +13467,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
+    "二2": {
      "type": "subject",
      "label": "3年4班",
      "subject": "資訊",
@@ -13515,7 +13515,7 @@
      "block": false,
      "conflict": null
     },
-    "二7": {
+    "四6": {
      "type": "subject",
      "label": "3年10班",
      "subject": "資訊",
@@ -13547,7 +13547,7 @@
      "block": false,
      "conflict": null
     },
-    "五1": {
+    "三4": {
      "type": "subject",
      "label": "4年2班",
      "subject": "資訊",
@@ -13555,7 +13555,7 @@
      "block": false,
      "conflict": null
     },
-    "三4": {
+    "二7": {
      "type": "subject",
      "label": "4年3班",
      "subject": "資訊",
@@ -13579,7 +13579,7 @@
      "block": false,
      "conflict": null
     },
-    "二4": {
+    "二3": {
      "type": "subject",
      "label": "4年6班",
      "subject": "資訊",
@@ -13611,7 +13611,7 @@
      "block": false,
      "conflict": null
     },
-    "四6": {
+    "四1": {
      "type": "subject",
      "label": "4年10班",
      "subject": "資訊",
@@ -13619,7 +13619,7 @@
      "block": false,
      "conflict": null
     },
-    "四1": {
+    "五1": {
      "type": "subject",
      "label": "4年11班",
      "subject": "資訊",
@@ -13673,7 +13673,7 @@
      "block": false,
      "conflict": null
     },
-    "二2": {
+    "五2": {
      "type": "subject",
      "label": "5年2班",
      "subject": "資訊",
@@ -13753,7 +13753,7 @@
      "block": false,
      "conflict": null
     },
-    "五2": {
+    "二2": {
      "type": "subject",
      "label": "5年12班",
      "subject": "資訊",
@@ -13872,7 +13872,7 @@
    ],
    "hours": 16,
    "cells": {
-    "五1": {
+    "二5": {
      "type": "subject",
      "label": "3年1班",
      "subject": "健康",
@@ -13880,7 +13880,7 @@
      "block": false,
      "conflict": null
     },
-    "一3": {
+    "四1": {
      "type": "subject",
      "label": "3年2班",
      "subject": "健康",
@@ -13888,7 +13888,7 @@
      "block": false,
      "conflict": null
     },
-    "二6": {
+    "四2": {
      "type": "subject",
      "label": "3年3班",
      "subject": "健康",
@@ -13904,7 +13904,7 @@
      "block": false,
      "conflict": null
     },
-    "二7": {
+    "四5": {
      "type": "subject",
      "label": "3年5班",
      "subject": "健康",
@@ -13912,7 +13912,7 @@
      "block": false,
      "conflict": null
     },
-    "二5": {
+    "五2": {
      "type": "subject",
      "label": "3年6班",
      "subject": "健康",
@@ -13928,7 +13928,7 @@
      "block": false,
      "conflict": null
     },
-    "四1": {
+    "一3": {
      "type": "subject",
      "label": "3年8班",
      "subject": "健康",
@@ -13976,7 +13976,7 @@
      "block": false,
      "conflict": null
     },
-    "二4": {
+    "二1": {
      "type": "subject",
      "label": "4年2班",
      "subject": "健康",
@@ -13984,7 +13984,7 @@
      "block": false,
      "conflict": null
     },
-    "四5": {
+    "二3": {
      "type": "subject",
      "label": "4年3班",
      "subject": "健康",
@@ -13992,7 +13992,7 @@
      "block": false,
      "conflict": null
     },
-    "四4": {
+    "四3": {
      "type": "subject",
      "label": "4年4班",
      "subject": "健康",
@@ -14003,9 +14003,9 @@
    },
    "per_day": [
     3,
-    4,
     3,
-    4,
+    3,
+    5,
     2
    ]
   },
@@ -14015,7 +14015,7 @@
    ],
    "hours": 16,
    "cells": {
-    "四5": {
+    "四1": {
      "type": "subject",
      "label": "4年5班",
      "subject": "健康",
@@ -14023,7 +14023,7 @@
      "block": false,
      "conflict": null
     },
-    "四6": {
+    "三2": {
      "type": "subject",
      "label": "4年6班",
      "subject": "健康",
@@ -14031,7 +14031,7 @@
      "block": false,
      "conflict": null
     },
-    "五4": {
+    "二5": {
      "type": "subject",
      "label": "4年7班",
      "subject": "健康",
@@ -14039,7 +14039,7 @@
      "block": false,
      "conflict": null
     },
-    "二7": {
+    "五1": {
      "type": "subject",
      "label": "4年8班",
      "subject": "健康",
@@ -14047,7 +14047,7 @@
      "block": false,
      "conflict": null
     },
-    "一3": {
+    "五2": {
      "type": "subject",
      "label": "4年9班",
      "subject": "健康",
@@ -14063,7 +14063,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "五3": {
      "type": "subject",
      "label": "4年11班",
      "subject": "健康",
@@ -14071,7 +14071,7 @@
      "block": false,
      "conflict": null
     },
-    "二4": {
+    "二6": {
      "type": "subject",
      "label": "4年12班",
      "subject": "健康",
@@ -14079,7 +14079,7 @@
      "block": false,
      "conflict": null
     },
-    "四2": {
+    "一4": {
      "type": "subject",
      "label": "5年1班",
      "subject": "健康",
@@ -14127,7 +14127,7 @@
      "block": false,
      "conflict": null
     },
-    "五2": {
+    "五5": {
      "type": "subject",
      "label": "5年7班",
      "subject": "健康",
@@ -14135,7 +14135,7 @@
      "block": false,
      "conflict": null
     },
-    "五1": {
+    "二3": {
      "type": "subject",
      "label": "5年8班",
      "subject": "健康",
@@ -14146,10 +14146,10 @@
    },
    "per_day": [
     3,
-    2,
     3,
-    4,
-    4
+    3,
+    2,
+    5
    ]
   },
   "健康丙": {
@@ -14188,7 +14188,7 @@
      "label": "希望不排",
      "note": "1"
     },
-    "五2": {
+    "四3": {
      "type": "subject",
      "label": "5年9班",
      "subject": "健康",
@@ -14204,7 +14204,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
+    "四4": {
      "type": "subject",
      "label": "5年11班",
      "subject": "健康",
@@ -14228,7 +14228,7 @@
      "block": false,
      "conflict": null
     },
-    "二6": {
+    "二5": {
      "type": "subject",
      "label": "6年2班",
      "subject": "健康",
@@ -14236,7 +14236,7 @@
      "block": false,
      "conflict": null
     },
-    "二5": {
+    "二6": {
      "type": "subject",
      "label": "6年3班",
      "subject": "健康",
@@ -14276,7 +14276,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "二4": {
      "type": "subject",
      "label": "6年8班",
      "subject": "健康",
@@ -14284,7 +14284,7 @@
      "block": false,
      "conflict": null
     },
-    "四3": {
+    "一3": {
      "type": "subject",
      "label": "6年9班",
      "subject": "健康",
@@ -14318,11 +14318,11 @@
     }
    },
    "per_day": [
-    4,
+    5,
     6,
-    2,
-    2,
-    2
+    1,
+    3,
+    1
    ]
   },
   "社會甲": {
@@ -14355,7 +14355,7 @@
      "block": false,
      "conflict": null
     },
-    "一2": {
+    "三2": {
      "type": "subject",
      "label": "5年2班",
      "subject": "社會",
@@ -14379,7 +14379,7 @@
      "block": false,
      "conflict": null
     },
-    "二2": {
+    "二4": {
      "type": "subject",
      "label": "5年3班",
      "subject": "社會",
@@ -14395,7 +14395,7 @@
      "block": false,
      "conflict": null
     },
-    "五4": {
+    "五6": {
      "type": "subject",
      "label": "5年3班",
      "subject": "社會",
@@ -14435,7 +14435,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
+    "二6": {
      "type": "subject",
      "label": "5年5班",
      "subject": "社會",
@@ -14477,9 +14477,9 @@
     }
    },
    "per_day": [
-    5,
+    4,
     3,
-    2,
+    3,
     3,
     5
    ]
@@ -14490,15 +14490,7 @@
    ],
    "hours": 18,
    "cells": {
-    "一4": {
-     "type": "subject",
-     "label": "5年7班",
-     "subject": "社會",
-     "room": "原班教室",
-     "block": false,
-     "conflict": null
-    },
-    "二6": {
+    "二2": {
      "type": "subject",
      "label": "5年7班",
      "subject": "社會",
@@ -14514,6 +14506,14 @@
      "block": false,
      "conflict": null
     },
+    "五2": {
+     "type": "subject",
+     "label": "5年7班",
+     "subject": "社會",
+     "room": "原班教室",
+     "block": false,
+     "conflict": null
+    },
     "一6": {
      "type": "subject",
      "label": "5年8班",
@@ -14522,7 +14522,7 @@
      "block": false,
      "conflict": null
     },
-    "二2": {
+    "三4": {
      "type": "subject",
      "label": "5年8班",
      "subject": "社會",
@@ -14538,15 +14538,7 @@
      "block": false,
      "conflict": null
     },
-    "一5": {
-     "type": "subject",
-     "label": "5年9班",
-     "subject": "社會",
-     "room": "原班教室",
-     "block": false,
-     "conflict": null
-    },
-    "三4": {
+    "二3": {
      "type": "subject",
      "label": "5年9班",
      "subject": "社會",
@@ -14562,7 +14554,15 @@
      "block": false,
      "conflict": null
     },
-    "一3": {
+    "五5": {
+     "type": "subject",
+     "label": "5年9班",
+     "subject": "社會",
+     "room": "原班教室",
+     "block": false,
+     "conflict": null
+    },
+    "二4": {
      "type": "subject",
      "label": "5年10班",
      "subject": "社會",
@@ -14578,7 +14578,7 @@
      "block": false,
      "conflict": null
     },
-    "五6": {
+    "四4": {
      "type": "subject",
      "label": "5年10班",
      "subject": "社會",
@@ -14636,11 +14636,11 @@
     }
    },
    "per_day": [
+    2,
     5,
+    3,
     4,
-    3,
-    3,
-    3
+    4
    ]
   },
   "社會丙": {
@@ -14682,7 +14682,7 @@
      "block": false,
      "conflict": null
     },
-    "二2": {
+    "二3": {
      "type": "subject",
      "label": "6年1班",
      "subject": "社會",
@@ -14690,7 +14690,7 @@
      "block": false,
      "conflict": null
     },
-    "三2": {
+    "三3": {
      "type": "subject",
      "label": "6年1班",
      "subject": "社會",
@@ -14706,7 +14706,7 @@
      "block": false,
      "conflict": null
     },
-    "二1": {
+    "四1": {
      "type": "subject",
      "label": "6年2班",
      "subject": "社會",
@@ -14730,7 +14730,7 @@
      "block": false,
      "conflict": null
     },
-    "四2": {
+    "四3": {
      "type": "subject",
      "label": "6年3班",
      "subject": "社會",
@@ -14762,7 +14762,7 @@
      "block": false,
      "conflict": null
     },
-    "四4": {
+    "三2": {
      "type": "subject",
      "label": "6年4班",
      "subject": "社會",
@@ -14778,7 +14778,7 @@
      "block": false,
      "conflict": null
     },
-    "二3": {
+    "四4": {
      "type": "subject",
      "label": "6年5班",
      "subject": "社會",
@@ -14821,9 +14821,9 @@
    },
    "per_day": [
     6,
-    5,
-    2,
-    2,
+    3,
+    3,
+    3,
     3
    ]
   },
@@ -14849,7 +14849,7 @@
      "block": false,
      "conflict": null
     },
-    "五2": {
+    "五4": {
      "type": "subject",
      "label": "6年7班",
      "subject": "社會",
@@ -14873,7 +14873,7 @@
      "block": false,
      "conflict": null
     },
-    "五5": {
+    "五3": {
      "type": "subject",
      "label": "6年8班",
      "subject": "社會",
@@ -14889,7 +14889,7 @@
      "block": false,
      "conflict": null
     },
-    "二5": {
+    "二3": {
      "type": "subject",
      "label": "6年9班",
      "subject": "社會",
@@ -14905,6 +14905,14 @@
      "block": false,
      "conflict": null
     },
+    "一4": {
+     "type": "subject",
+     "label": "6年10班",
+     "subject": "社會",
+     "room": "原班教室",
+     "block": false,
+     "conflict": null
+    },
     "三2": {
      "type": "subject",
      "label": "6年10班",
@@ -14914,14 +14922,6 @@
      "conflict": null
     },
     "四2": {
-     "type": "subject",
-     "label": "6年10班",
-     "subject": "社會",
-     "room": "原班教室",
-     "block": false,
-     "conflict": null
-    },
-    "五3": {
      "type": "subject",
      "label": "6年10班",
      "subject": "社會",
@@ -14979,11 +14979,11 @@
     }
    },
    "per_day": [
-    4,
+    5,
     3,
     3,
     4,
-    4
+    3
    ]
   },
   "閩南語甲": {
@@ -15558,42 +15558,41 @@
    "use": {
     "四5": [
      "3年1班",
-     "4年2班",
+     "3年8班",
      "4年7班",
      "4年11班"
     ],
     "四6": [
      "3年1班",
-     "4年2班",
+     "3年8班",
      "4年7班",
      "4年11班"
     ],
-    "二5": [
+    "二3": [
      "3年2班",
-     "3年10班",
-     "4年6班",
-     "6年5班"
+     "4年4班",
+     "5年6班",
+     "6年6班"
     ],
-    "二6": [
+    "二4": [
      "3年2班",
-     "3年10班",
-     "4年6班",
-     "6年5班"
+     "4年4班",
+     "6年6班"
     ],
     "五3": [
      "3年3班",
+     "3年11班",
      "4年5班",
-     "4年10班",
      "6年1班"
     ],
     "五4": [
      "3年3班",
-     "4年10班",
+     "3年11班",
      "6年1班"
     ],
     "一3": [
      "3年4班",
-     "3年8班",
+     "4年2班",
      "6年3班",
      "6年7班"
     ],
@@ -15636,12 +15635,6 @@
      "5年4班",
      "5年5班"
     ],
-    "一2": [
-     "3年8班",
-     "5年10班",
-     "6年2班",
-     "6年11班"
-    ],
     "四3": [
      "3年9班",
      "4年8班",
@@ -15654,26 +15647,36 @@
      "5年1班",
      "5年8班"
     ],
-    "二3": [
-     "3年11班",
-     "4年4班",
-     "5年6班",
-     "6年6班"
+    "二5": [
+     "3年10班",
+     "4年6班",
+     "4年10班",
+     "6年5班"
     ],
-    "二4": [
-     "3年11班",
-     "4年4班",
-     "6年6班"
+    "二6": [
+     "3年10班",
+     "4年6班",
+     "4年10班",
+     "6年5班"
     ],
     "三2": [
      "3年12班",
-     "4年9班",
      "5年9班"
     ],
     "三3": [
      "3年12班",
      "4年9班",
      "5年9班",
+     "6年10班"
+    ],
+    "一2": [
+     "4年2班",
+     "5年10班",
+     "6年2班",
+     "6年11班"
+    ],
+    "三4": [
+     "4年9班",
      "6年10班"
     ],
     "五5": [
@@ -15702,9 +15705,6 @@
      "5年10班",
      "6年2班",
      "6年11班"
-    ],
-    "三4": [
-     "6年10班"
     ]
    }
   },
@@ -15715,35 +15715,35 @@
     "二1": [
      "1年1班",
      "3年1班",
-     "4年10班",
-     "5年11班",
-     "6年3班"
+     "4年5班",
+     "5年11班"
     ],
     "四3": [
      "1年2班",
      "3年12班",
      "4年9班",
-     "5年5班",
+     "5年10班",
      "6年6班"
     ],
-    "四4": [
-     "1年3班",
-     "3年6班",
-     "4年5班",
-     "4年12班",
-     "5年9班"
-    ],
     "二3": [
-     "1年4班",
+     "1年3班",
      "2年11班",
      "4年7班",
-     "5年12班"
+     "5年12班",
+     "6年11班"
     ],
-    "三3": [
+    "四4": [
+     "1年4班",
+     "3年6班",
+     "5年9班",
+     "6年3班"
+    ],
+    "一4": [
      "1年5班",
-     "4年10班",
-     "5年10班",
-     "6年12班"
+     "3年8班",
+     "4年9班",
+     "5年7班",
+     "6年8班"
     ],
     "五3": [
      "1年6班",
@@ -15753,22 +15753,23 @@
     ],
     "二6": [
      "1年7班",
-     "3年6班",
      "4年1班",
      "5年2班",
+     "5年6班",
      "6年9班"
     ],
     "二2": [
      "1年8班",
      "2年10班",
      "4年6班",
-     "5年10班"
+     "6年6班"
     ],
-    "三2": [
+    "一2": [
      "1年9班",
-     "3年8班",
-     "4年2班",
-     "5年6班"
+     "3年6班",
+     "4年3班",
+     "5年8班",
+     "6年4班"
     ],
     "二5": [
      "1年10班",
@@ -15781,51 +15782,55 @@
      "1年11班",
      "2年9班",
      "3年9班",
+     "4年11班",
      "5年12班"
     ],
     "一1": [
      "1年12班",
      "3年2班",
-     "3年10班"
+     "3年10班",
+     "4年12班",
+     "5年9班"
     ],
     "三4": [
      "2年1班",
      "4年6班",
      "5年2班",
-     "5年8班",
+     "5年5班",
      "6年9班"
     ],
     "二4": [
      "2年2班",
      "3年12班",
      "4年8班",
-     "5年8班",
      "6年5班"
     ],
-    "一2": [
+    "三2": [
      "2年3班",
-     "3年4班",
-     "4年3班",
-     "6年4班"
+     "3年8班",
+     "4年2班",
+     "5年6班",
+     "6年11班"
     ],
     "五1": [
      "2年4班",
-     "4年5班",
+     "3年4班",
+     "3年11班",
      "4年7班",
      "6年7班"
     ],
     "五4": [
      "2年5班",
-     "3年5班",
-     "4年11班",
+     "4年12班",
      "6年2班",
      "6年4班"
     ],
     "四1": [
      "2年6班",
      "3年3班",
+     "3年11班",
      "4年8班",
-     "6年11班"
+     "6年7班"
     ],
     "五2": [
      "2年7班",
@@ -15836,62 +15841,57 @@
     ],
     "四2": [
      "2年8班",
-     "3年11班",
-     "5年7班",
-     "6年7班"
+     "4年4班",
+     "5年3班",
+     "5年7班"
     ],
-    "二7": [
+    "三3": [
      "3年2班",
-     "3年9班",
-     "4年12班",
-     "5年7班",
-     "6年11班"
+     "4年5班",
+     "4年10班",
+     "5年10班",
+     "6年12班"
     ],
     "四5": [
      "3年4班",
-     "4年4班"
+     "3年10班",
+     "4年10班"
+    ],
+    "二7": [
+     "3年5班",
+     "3年9班",
+     "5年8班"
     ],
     "四6": [
-     "3年5班",
-     "3年10班"
+     "3年5班"
     ],
     "四7": [
      "3年7班",
      "4年2班",
      "4年11班"
     ],
-    "一4": [
-     "3年8班",
-     "3年11班",
-     "4年9班",
-     "5年6班",
-     "6年8班"
-    ],
     "一6": [
      "5年1班",
-     "5年9班",
-     "6年6班"
-    ],
-    "五7": [
-     "5年1班",
-     "6年5班"
-    ],
-    "一7": [
-     "5年3班",
-     "6年1班",
-     "6年12班"
-    ],
-    "一5": [
-     "5年4班",
-     "6年2班",
-     "6年10班"
-    ],
-    "五6": [
-     "5年4班",
      "6年3班"
     ],
     "五5": [
+     "5年1班",
      "6年10班"
+    ],
+    "一7": [
+     "5年4班",
+     "6年1班",
+     "6年12班"
+    ],
+    "五6": [
+     "5年4班"
+    ],
+    "一5": [
+     "6年2班",
+     "6年10班"
+    ],
+    "五7": [
+     "6年5班"
     ]
    }
   },
@@ -15899,9 +15899,9 @@
    "cap": 2,
    "where": "丁棟4F",
    "use": {
-    "二2": [
+    "二4": [
      "3年1班",
-     "5年2班"
+     "5年7班"
     ],
     "四3": [
      "3年2班"
@@ -15910,9 +15910,9 @@
      "3年3班",
      "5年6班"
     ],
-    "二3": [
+    "二2": [
      "3年4班",
-     "6年3班"
+     "5年12班"
     ],
     "五3": [
      "3年5班",
@@ -15931,11 +15931,10 @@
     ],
     "五2": [
      "3年9班",
-     "5年12班"
+     "5年2班"
     ],
-    "二7": [
-     "3年10班",
-     "6年6班"
+    "四6": [
+     "3年10班"
     ],
     "二1": [
      "3年11班"
@@ -15947,13 +15946,13 @@
      "4年1班",
      "6年7班"
     ],
-    "五1": [
-     "4年2班",
-     "5年1班"
-    ],
     "三4": [
-     "4年3班",
+     "4年2班",
      "6年2班"
+    ],
+    "二7": [
+     "4年3班",
+     "6年6班"
     ],
     "一1": [
      "4年4班"
@@ -15962,9 +15961,9 @@
      "4年5班",
      "6年5班"
     ],
-    "二4": [
+    "二3": [
      "4年6班",
-     "5年7班"
+     "6年3班"
     ],
     "一4": [
      "4年7班",
@@ -15978,12 +15977,13 @@
      "4年9班",
      "6年11班"
     ],
-    "四6": [
-     "4年10班"
-    ],
     "四1": [
-     "4年11班",
+     "4年10班",
      "6年10班"
+    ],
+    "五1": [
+     "4年11班",
+     "5年1班"
     ],
     "一3": [
      "4年12班",
@@ -16013,108 +16013,38 @@
    "cap": 8,
    "where": "操場",
    "use": {
-    "一3": [
+    "二3": [
      "1年1班",
-     "3年3班",
-     "4年5班",
-     "5年4班",
-     "5年11班",
-     "6年12班"
-    ],
-    "四1": [
-     "1年2班",
-     "2年11班",
-     "4年1班",
-     "4年9班",
-     "5年8班",
-     "6年3班"
-    ],
-    "三4": [
-     "1年3班"
-    ],
-    "四3": [
-     "1年4班",
      "3年1班",
-     "3年11班",
-     "4年10班",
-     "5年12班",
-     "6年4班"
-    ],
-    "二1": [
-     "1年5班",
-     "3年3班",
-     "4年4班",
-     "5年3班",
-     "6年1班",
-     "6年6班"
-    ],
-    "五4": [
-     "1年6班",
-     "3年8班",
-     "3年11班"
-    ],
-    "一2": [
-     "1年7班",
-     "3年7班",
-     "4年4班",
-     "4年12班",
-     "5年7班",
-     "6年9班"
-    ],
-    "三2": [
-     "1年8班",
-     "3年5班",
      "3年10班",
-     "4年7班",
-     "5年11班",
-     "6年9班"
-    ],
-    "三3": [
-     "1年9班",
-     "3年6班",
-     "4年2班",
-     "5年1班",
-     "6年2班",
+     "5年2班",
+     "5年10班",
      "6年7班"
     ],
+    "五4": [
+     "1年2班"
+    ],
+    "四4": [
+     "1年3班"
+    ],
+    "二2": [
+     "1年4班",
+     "3年8班",
+     "4年2班",
+     "4年8班",
+     "5年11班",
+     "6年9班"
+    ],
     "一1": [
-     "1年10班",
-     "3年6班",
+     "1年5班",
+     "3年8班",
      "4年6班",
      "5年2班",
      "5年6班",
-     "6年7班"
-    ],
-    "一4": [
-     "1年11班",
-     "4年1班"
-    ],
-    "二3": [
-     "1年12班",
-     "3年1班",
-     "4年6班",
-     "5年2班",
-     "5年10班",
-     "6年8班"
-    ],
-    "五3": [
-     "2年1班",
-     "3年4班",
-     "3年9班",
-     "4年12班",
-     "5年7班",
-     "6年6班"
-    ],
-    "四2": [
-     "2年2班",
-     "3年2班",
-     "3年12班",
-     "4年11班",
-     "5年10班",
-     "6年12班"
+     "6年3班"
     ],
     "五1": [
-     "2年3班",
+     "1年6班",
      "3年2班",
      "3年12班",
      "4年10班",
@@ -16122,39 +16052,107 @@
      "6年4班"
     ],
     "五2": [
-     "2年4班",
+     "1年7班",
      "2年9班",
-     "3年10班",
+     "3年11班",
      "5年3班",
-     "6年1班",
+     "5年10班",
+     "6年11班"
+    ],
+    "一3": [
+     "1年8班",
+     "3年6班",
+     "4年5班",
+     "5年4班",
+     "5年11班",
+     "6年12班"
+    ],
+    "五3": [
+     "1年9班",
+     "3年4班",
+     "3年9班",
+     "4年12班",
+     "5年12班",
+     "6年10班"
+    ],
+    "二4": [
+     "1年10班"
+    ],
+    "一2": [
+     "1年11班",
+     "3年7班",
+     "4年1班",
+     "4年12班",
+     "5年7班",
+     "6年8班"
+    ],
+    "四1": [
+     "1年12班",
+     "2年11班",
+     "4年6班",
+     "4年9班",
+     "5年8班",
+     "6年8班"
+    ],
+    "二1": [
+     "2年1班",
+     "3年3班",
+     "4年4班",
+     "5年3班",
+     "5年7班",
+     "6年6班"
+    ],
+    "二7": [
+     "2年2班",
+     "3年7班",
+     "4年5班",
+     "4年9班",
+     "5年5班",
+     "6年4班"
+    ],
+    "四3": [
+     "2年3班",
+     "3年1班",
+     "3年11班",
+     "4年10班",
+     "5年12班",
      "6年5班"
     ],
-    "四4": [
-     "2年5班"
+    "一4": [
+     "2年4班",
+     "3年3班"
     ],
     "二6": [
-     "2年6班",
+     "2年5班",
      "2年10班",
      "4年3班",
      "4年11班",
      "5年9班",
      "6年11班"
     ],
-    "二2": [
-     "2年7班",
-     "3年8班",
-     "4年2班",
-     "4年8班",
-     "6年2班",
-     "6年10班"
+    "三2": [
+     "2年6班",
+     "3年5班",
+     "3年10班",
+     "4年7班",
+     "5年8班",
+     "6年9班"
     ],
-    "二7": [
-     "2年8班",
-     "3年7班",
-     "4年5班",
-     "4年9班",
+    "四2": [
+     "2年7班",
+     "3年2班",
+     "3年12班",
+     "4年11班",
      "5年6班",
-     "6年3班"
+     "6年12班"
+    ],
+    "三3": [
+     "2年8班",
+     "3年6班",
+     "4年2班",
+     "5年1班",
+     "6年2班",
+     "6年7班"
     ],
     "四6": [
      "3年4班",
@@ -16166,6 +16164,12 @@
      "3年9班",
      "4年7班"
     ],
+    "二5": [
+     "4年1班"
+    ],
+    "三4": [
+     "4年4班"
+    ],
     "一7": [
      "5年1班",
      "5年9班",
@@ -16173,16 +16177,16 @@
     ],
     "五7": [
      "5年4班",
-     "5年12班",
-     "6年11班"
+     "6年2班",
+     "6年6班"
     ],
     "一6": [
-     "5年5班",
+     "6年1班",
      "6年10班"
     ],
     "五6": [
-     "5年8班",
-     "6年8班"
+     "6年1班",
+     "6年3班"
     ]
    }
   }
@@ -16368,13 +16372,13 @@
    "ok": false,
    "summary": "119 節中有 7 節沒避開",
    "details": [
-    "1年3班 體育（體育甲）星期三第4節",
-    "1年6班 體育（體育甲）星期五第4節",
-    "1年11班 體育（體育甲）星期一第4節",
-    "2年5班 體育（體育甲）星期四第4節",
-    "3年8班 體育（體育乙）星期五第4節",
-    "3年11班 體育（體育丙）星期五第4節",
-    "4年1班 體育（體育丙）星期一第4節"
+    "1年2班 體育（體育甲）星期五第4節",
+    "1年3班 體育（體育甲）星期四第4節",
+    "1年10班 體育（體育甲）星期二第4節",
+    "2年4班 體育（體育甲）星期一第4節",
+    "3年3班 體育（體育乙）星期一第4節",
+    "4年1班 體育（體育丙）星期二第5節",
+    "4年4班 體育（體育丙）星期三第4節"
    ],
    "n": 7
   },
@@ -16404,7 +16408,7 @@
    "enabled": true,
    "reason": "下課10分鐘換班、上廁所",
    "ok": true,
-   "summary": "94 次連續兩節換班，全部在同一層",
+   "summary": "95 次連續兩節換班，全部在同一層",
    "details": [],
    "n": 0
   },
@@ -16436,7 +16440,7 @@
    "content": "同一班同一科一天最多 1 次（連堂算 1 次）",
    "importance": "高",
    "enabled": true,
-   "reason": "避免同一天上兩次同科",
+   "reason": "避免同一天上兩次同科（Bing 2026-10-21 確認保留）",
    "ok": true,
    "summary": "每班同一科都分散在不同天",
    "details": [],
