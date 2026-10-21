@@ -1,0 +1,421 @@
+<title>楠梓國小科任排課</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* 版面：上方課表本封面（標題＋狀態）→ 分頁 → 工作區；課表格子是主角 */
+:root {
+  --paper: #f5f7f8; --sheet: #ffffff; --ink: #1c2530; --muted: #5d6b78; --line: #d5dde3; --soft: #eaf0f3;
+  --accent: #1e5a7a; --accent-ink: #ffffff;
+  --ok: #2f7d4f; --ok-bg: #e3f2e8; --warn: #a3620a; --warn-bg: #fbefd9; --bad: #b3342b; --bad-bg: #fbe4e1;
+  --lock: #e4e8ec; --lock-ink: #46525e; --off: #c9d1d8;
+  --s-en: #dbe9fb; --s-en-i: #1d4f8f; --s-sc: #dcf1e2; --s-sc-i: #1f6b3c; --s-so: #fbecd2; --s-so-i: #8a5300;
+  --s-pe: #fde0d6; --s-pe-i: #9a3412; --s-mu: #ece2fb; --s-mu-i: #5b2d9e; --s-it: #d7f2f4; --s-it-i: #0e6670;
+  --s-he: #fbe0ec; --s-he-i: #9d2459; --s-ar: #f6f0c8; --s-ar-i: #6d5d00; --s-xx: #e7ebef; --s-xx-i: #37424d;
+  --f-display: "Noto Serif TC", "Songti TC", serif;
+  --f-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #11171c; --sheet: #182129; --ink: #e6edf2; --muted: #9aa9b5; --line: #2c3a45; --soft: #1f2a33;
+  --accent: #7fc0e3; --accent-ink: #0d1b24;
+  --ok: #7fd3a0; --ok-bg: #173323; --warn: #f2be6b; --warn-bg: #3a2b12; --bad: #f19a90; --bad-bg: #3d1d1a;
+  --lock: #24303a; --lock-ink: #a9b7c2; --off: #33414c;
+  --s-en: #1d3554; --s-en-i: #a9cdf7; --s-sc: #1c3a28; --s-sc-i: #a6e2bb; --s-so: #3b2d14; --s-so-i: #f1cf8f;
+  --s-pe: #432319; --s-pe-i: #f8b9a1; --s-mu: #2f2346; --s-mu-i: #d4bdf7; --s-it: #143a3e; --s-it-i: #9fe2e8;
+  --s-he: #42202f; --s-he-i: #f5b2cf; --s-ar: #393413; --s-ar-i: #e8dc8c; --s-xx: #26313a; --s-xx-i: #c4d0d9;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #11171c; --sheet: #182129; --ink: #e6edf2; --muted: #9aa9b5; --line: #2c3a45; --soft: #1f2a33;
+  --accent: #7fc0e3; --accent-ink: #0d1b24;
+  --ok: #7fd3a0; --ok-bg: #173323; --warn: #f2be6b; --warn-bg: #3a2b12; --bad: #f19a90; --bad-bg: #3d1d1a;
+  --lock: #24303a; --lock-ink: #a9b7c2; --off: #33414c;
+  --s-en: #1d3554; --s-en-i: #a9cdf7; --s-sc: #1c3a28; --s-sc-i: #a6e2bb; --s-so: #3b2d14; --s-so-i: #f1cf8f;
+  --s-pe: #432319; --s-pe-i: #f8b9a1; --s-mu: #2f2346; --s-mu-i: #d4bdf7; --s-it: #143a3e; --s-it-i: #9fe2e8;
+  --s-he: #42202f; --s-he-i: #f5b2cf; --s-ar: #393413; --s-ar-i: #e8dc8c; --s-xx: #26313a; --s-xx-i: #c4d0d9;
+  color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px }
+.wrap { max-width: 1120px; margin: 0 auto }
+h1, h2, h3 { text-wrap: balance; margin: 0 }
+button { font: inherit; color: inherit }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums }
+
+/* 封面 */
+header.cover { padding-block: 28px 18px; display: grid; gap: 14px }
+.eyebrow { font-size: 12px; letter-spacing: .12em; color: var(--muted) }
+.cover h1 { font-family: var(--f-display); font-weight: 900; font-size: clamp(26px, 5vw, 38px); line-height: 1.2 }
+.cover h1 small { font-size: .5em; font-weight: 700; color: var(--muted); margin-left: .4em; letter-spacing: .05em }
+.status { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center }
+.pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 700 }
+.pill.ok { background: var(--ok-bg); color: var(--ok) } .pill.warn { background: var(--warn-bg); color: var(--warn) }
+.pill.bad { background: var(--bad-bg); color: var(--bad) } .pill.demo { background: var(--soft); color: var(--muted); border: 1px dashed var(--line) }
+.meta { color: var(--muted); font-size: 13px }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden }
+.stat { background: var(--sheet); padding: 12px 14px }
+.stat b { display: block; font-family: var(--f-mono); font-size: 24px; font-weight: 500; line-height: 1.2 }
+.stat span { font-size: 12px; color: var(--muted) }
+@media (max-width: 640px) { .stat:last-child { grid-column: 1 / -1 } }
+
+/* 分頁 */
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); display: flex; gap: 4px; overflow-x: auto; padding-block: 10px; border-bottom: 1px solid var(--line); margin-bottom: 20px; scrollbar-width: none }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper) }
+nav.tabs button { border: 0; background: none; padding: 7px 14px; border-radius: 8px; cursor: pointer; white-space: nowrap; color: var(--muted); font-weight: 500 }
+nav.tabs button:hover { background: var(--soft); color: var(--ink) }
+nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink) }
+section.view { display: grid; gap: 18px; animation: rise .25s ease-out }
+@keyframes rise { from { transform: translateY(4px) } to { transform: none } }
+@media (prefers-reduced-motion: reduce) { section.view { animation: none } }
+
+/* 篩選 chips */
+.picker { display: grid; gap: 10px }
+.chips { display: flex; flex-wrap: wrap; gap: 6px }
+.chip { border: 1px solid var(--line); background: var(--sheet); border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: 14px; display: inline-flex; gap: 6px; align-items: baseline }
+.chip:hover { border-color: var(--accent) }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink) }
+.chip small { font-family: var(--f-mono); font-size: 11px; opacity: .75 }
+.chip.grade { font-weight: 700 }
+.search { border: 1px solid var(--line); background: var(--sheet); border-radius: 8px; padding: 6px 12px; font: inherit; color: var(--ink); width: min(260px, 100%) }
+
+/* 課表 */
+.sheet { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 14px; min-width: 0 }
+.sheet-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; align-items: baseline }
+.sheet-head h2 { font-family: var(--f-display); font-size: 24px }
+.sheet-head .sub { color: var(--muted); font-size: 13px }
+.scroll { overflow-x: auto; min-width: 0 }
+table.tt { border-collapse: separate; border-spacing: 4px; width: 100%; min-width: 560px; table-layout: fixed }
+table.tt th { font-size: 12px; color: var(--muted); font-weight: 500; padding: 2px }
+table.tt th.p { width: 52px; text-align: right; padding-right: 8px; font-family: var(--f-mono) }
+table.tt tr.brk td { height: 10px; padding: 0; font-size: 11px; color: var(--muted); text-align: center; letter-spacing: .3em }
+.c { border-radius: 8px; padding: 6px 8px; height: 64px; display: flex; flex-direction: column; justify-content: center; gap: 1px; line-height: 1.25; position: relative; overflow: hidden }
+.c .l { font-weight: 700; font-size: 15px }
+.c .w { font-size: 12px; opacity: .85 }
+.c .tag { position: absolute; top: 4px; right: 6px; font-size: 10px; font-weight: 700; letter-spacing: .05em; opacity: .8 }
+.c.free { border: 1.5px dashed var(--line); color: var(--muted); align-items: center; font-size: 12px }
+.c.lock, .c.sped { background: var(--lock); color: var(--lock-ink) }
+.c.sped { background-image: repeating-linear-gradient(135deg, transparent 0 6px, color-mix(in srgb, var(--lock-ink) 12%, transparent) 6px 7px) }
+.c.off { background: repeating-linear-gradient(45deg, var(--soft) 0 5px, transparent 5px 10px); color: var(--muted); align-items: center; font-size: 12px }
+.c.lang { background: var(--s-ar); color: var(--s-ar-i) }
+.c.must, .c.duty { background: var(--bad-bg); color: var(--bad) }
+.c.wish { border: 1.5px dotted var(--warn); color: var(--warn); background: transparent }
+.c.hit { box-shadow: inset 0 0 0 2px var(--warn) }
+.c.blk::after { content: ""; position: absolute; left: 8px; right: 8px; bottom: 3px; height: 3px; border-radius: 2px; background: currentColor; opacity: .35 }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted) }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 5px }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px }
+.fact { border-top: 2px solid var(--line); padding-top: 6px }
+.fact b { font-family: var(--f-mono); font-size: 20px; font-weight: 500 }
+.fact span { display: block; font-size: 12px; color: var(--muted) }
+.fact.good { border-color: var(--ok) } .fact.alert { border-color: var(--warn) }
+.bars { display: flex; gap: 8px; align-items: flex-end; height: 64px }
+.bars div { flex: 1; display: grid; gap: 4px; text-align: center; font-size: 12px; color: var(--muted) }
+.bars i { display: block; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px }
+.bars i.over { background: var(--warn) }
+
+/* 規則體檢 */
+.notes { display: grid; gap: 8px }
+.note { border-radius: 10px; padding: 10px 14px; font-size: 14px; display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start }
+.note b { font-size: 12px; padding: 1px 8px; border-radius: 6px; white-space: nowrap }
+.note.tip { background: var(--warn-bg) } .note.tip b { background: var(--warn); color: var(--sheet) }
+.note.err { background: var(--bad-bg) } .note.err b { background: var(--bad); color: var(--sheet) }
+.note.info { background: var(--soft) } .note.info b { background: var(--accent); color: var(--accent-ink) }
+.layer { display: grid; gap: 6px }
+.layer h3 { font-family: var(--f-display); font-size: 18px; display: flex; align-items: baseline; gap: 10px }
+.layer h3 .lv { font-family: var(--f-mono); font-size: 12px; font-weight: 500; border: 1px solid var(--line); border-radius: 6px; padding: 0 6px; color: var(--muted) }
+.layer h3 small { font-family: var(--f-body); font-size: 12px; font-weight: 400; color: var(--muted) }
+details.rule { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px }
+details.rule summary { list-style: none; cursor: pointer; padding: 10px 14px; display: grid; grid-template-columns: 44px 72px 1fr; gap: 4px 10px; align-items: center }
+details.rule summary::-webkit-details-marker { display: none }
+details.rule .id { font-family: var(--f-mono); color: var(--muted); font-size: 13px }
+details.rule .st { font-size: 12px; font-weight: 700; border-radius: 6px; padding: 1px 0; text-align: center }
+.st.ok { background: var(--ok-bg); color: var(--ok) } .st.part { background: var(--warn-bg); color: var(--warn) } .st.skip { background: var(--soft); color: var(--muted) }
+details.rule .what { min-width: 0 }
+details.rule .what b { font-weight: 500 }
+details.rule .what span { display: block; font-size: 13px; color: var(--muted) }
+details.rule .imp { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; margin-left: 6px }
+details.rule ul { margin: 0; padding: 0 14px 12px 70px; font-size: 13px; color: var(--muted); columns: 2 260px }
+details.rule .why { padding: 0 14px 10px 70px; font-size: 12px; color: var(--muted) }
+@media (max-width: 520px) { details.rule summary { grid-template-columns: 40px 64px 1fr } details.rule ul, details.rule .why { padding-left: 14px } }
+
+/* 總表 */
+table.mx { border-collapse: collapse; font-size: 12px; min-width: 900px }
+table.mx th, table.mx td { border: 1px solid var(--line); padding: 0; text-align: center; height: 28px; min-width: 24px }
+table.mx th { color: var(--muted); font-weight: 500; background: var(--sheet); position: sticky; top: 0 }
+table.mx th.cn, table.mx td.cn { position: sticky; left: 0; background: var(--sheet); min-width: 64px; padding: 0 6px; text-align: left; z-index: 1 }
+table.mx td.d0 { border-left: 2px solid var(--muted) }
+table.mx td button { all: unset; display: block; width: 100%; height: 100%; cursor: pointer; font-weight: 700 }
+.room-c { font-family: var(--f-mono) }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; display: grid; gap: 4px }
+</style>
+
+<div class="wrap">
+  <header class="cover">
+    <div class="eyebrow">高雄市楠梓國小　教學組　115 學年度</div>
+    <h1>科任排課<small id="kind">結果</small></h1>
+    <div class="status" id="status"></div>
+    <div class="stats" id="stats"></div>
+  </header>
+  <nav class="tabs" role="tablist" id="tabs"></nav>
+  <main id="main"></main>
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const DATA = __DATA__;
+const DAYS = DATA.days || ["一","二","三","四","五"];
+const ROWS = [1, 2, "大下課", 3, 4, "午餐・午休", 5, 6, 7];
+const SUBJ = { 英語: "en", 自然: "sc", 社會: "so", 體育: "pe", 音樂: "mu", 資訊: "it", 健康: "he", 美勞: "ar", 表演藝術: "ar" };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const subjStyle = s => { const k = SUBJ[s] || "xx"; return `background:var(--s-${k});color:var(--s-${k}-i)`; };
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const isDemo = /試跑/.test(DATA.meta?.source || "");
+
+const state = { view: "rules", grade: 3, cls: null, subject: "全部", teacher: null, room: null, mxGrade: 3 };
+try { Object.assign(state, JSON.parse(store.get("cs-state") || "{}")); } catch (e) {}
+const save = () => store.set("cs-state", JSON.stringify(state));
+
+/* ---------- 封面 ---------- */
+function cover() {
+  const m = DATA.meta, rules = DATA.rules || [];
+  document.getElementById("kind").textContent = isDemo ? "試跑結果" : "結果";
+  const ok = rules.filter(r => r.ok === true).length, part = rules.filter(r => r.ok === false).length, skip = rules.filter(r => r.ok === null).length;
+  const hardFail = rules.some(r => r.ok === false && r.level <= 2);
+  let pill;
+  if (!DATA.classes) pill = `<span class="pill bad">排不出來，請看下方原因</span>`;
+  else if (m.relax || hardFail) pill = `<span class="pill bad">有必須規則沒做到</span>`;
+  else pill = `<span class="pill ok">✓ 法規、鎖定、必須規則全部做到</span>`;
+  const best = m.status === "OPTIMAL" ? `<span class="pill ok">在所有規則下最好的排法</span>` : (m.status === "FEASIBLE" ? `<span class="pill warn">可用的排法（時間到先停）</span>` : "");
+  document.getElementById("status").innerHTML = pill + best + (isDemo ? `<span class="pill demo">假資料試跑・老師代號皆虛構</span>` : "") +
+    `<span class="meta">資料：${esc(m.source)}・產生：${esc(m.generated || "")}</span>`;
+  if (!DATA.classes) { document.getElementById("stats").innerHTML = ""; return; }
+  document.getElementById("stats").innerHTML = [
+    [m.n_classes, "班級"], [m.n_teachers, "位科任老師"], [m.n_lessons, "節科任課排好"], [m.seconds + " 秒", "電腦計算時間"],
+    [`${ok}<span style="font-size:14px;color:var(--muted)"> / ${rules.length}</span>`, `條規則完全做到${part ? `，${part} 條部分做到` : ""}`]
+  ].map(([b, s]) => `<div class="stat"><b class="num">${b}</b><span>${s}</span></div>`).join("");
+}
+
+/* ---------- 分頁 ---------- */
+const TABS = [["rules", "規則體檢"], ["class", "班級課表"], ["teacher", "老師課表"], ["room", "專科教室"], ["grade", "全年級總表"]];
+function tabs() {
+  const nav = document.getElementById("tabs");
+  nav.innerHTML = TABS.map(([k, t]) => `<button role="tab" id="tab-${k}" aria-selected="${state.view === k}" data-v="${k}">${t}</button>`).join("");
+  nav.onclick = e => { const b = e.target.closest("button"); if (!b) return; go(b.dataset.v); };
+}
+function go(v, extra = {}) { Object.assign(state, extra, { view: v }); save(); tabs(); render(); try { history.replaceState(null, "", "#" + v); } catch (e) {} }
+
+/* ---------- 課表格子 ---------- */
+function grid(cells, kind) {
+  let h = `<div class="scroll"><table class="tt"><thead><tr><th class="p"></th>${DAYS.map(d => `<th>星期${d}</th>`).join("")}</tr></thead><tbody>`;
+  for (const p of ROWS) {
+    if (typeof p !== "number") { h += `<tr class="brk"><td></td><td colspan="5">${p}</td></tr>`; continue; }
+    h += `<tr><th class="p">${p}</th>`;
+    for (const d of DAYS) h += `<td>${cell(cells[d + p], kind)}</td>`;
+    h += `</tr>`;
+  }
+  return h + `</tbody></table></div>`;
+}
+function cell(c, kind) {
+  if (!c) return kind === "class" ? `<div class="c free">導師</div>` : `<div class="c free" style="border-color:transparent"></div>`;
+  const t = c.type;
+  if (t === "subject") {
+    const room = c.room && c.room !== "原班教室" ? c.room.replace("／體育館", "") : "";
+    const tag = c.block ? "連堂" : "";
+    if (kind === "class") return `<div class="c${c.block ? " blk" : ""}" style="${subjStyle(c.label)}" title="${esc(c.label)}・${esc(c.who)}${room ? "・" + esc(room) : ""}"><span class="tag">${tag}</span><span class="l">${esc(c.label)}</span><span class="w">${esc(c.who)}${room ? "・" + esc(room) : ""}</span></div>`;
+    return `<div class="c${c.block ? " blk" : ""}${c.conflict ? " hit" : ""}" style="${subjStyle(c.subject)}" title="${c.conflict ? "這格老師勾了「希望不排」" : ""}"><span class="tag">${c.conflict ? "希望不排" : tag}</span><span class="l">${esc(c.label)}</span><span class="w">${esc(c.subject)}・${esc(room || "原班")}</span></div>`;
+  }
+  if (t === "off") return `<div class="c off">不上課</div>`;
+  if (t === "lock") return `<div class="c lock"><span class="tag">鎖定</span><span class="l">${esc(c.label)}</span><span class="w">${esc(c.who || "")}上</span></div>`;
+  if (t === "sped") return `<div class="c sped" title="${esc(c.note || "")}"><span class="tag">保留</span><span class="l">${esc(c.label)}</span><span class="w">抽離・導師上</span></div>`;
+  if (t === "lang") return `<div class="c lang" title="${esc(c.note || "")}"><span class="tag">鎖定</span><span class="l">${esc(c.label)}</span><span class="w">${esc(c.who || c.note || "")}</span></div>`;
+  if (t === "must") return `<div class="c must" title="${esc(c.note || "")}"><span class="l">必須不排</span><span class="w">${esc(c.note || "")}</span></div>`;
+  if (t === "duty") return `<div class="c duty" title="${esc(c.note || "")}"><span class="l">職務不排</span><span class="w">${esc((c.note || "").split("（")[0])}</span></div>`;
+  if (t === "wish") return `<div class="c wish" title="${esc(c.note || "")}"><span class="l">希望不排</span><span class="w">${esc(c.note || "")}</span></div>`;
+  return `<div class="c lock">${esc(c.label)}</div>`;
+}
+const legendClass = () => `<div class="legend">${Object.keys(SUBJ).slice(0, 7).map(s => `<span><i style="${subjStyle(s)}"></i>${s}</span>`).join("")}
+  <span><i style="background:var(--lock)"></i>鎖定／保留給導師</span><span><i style="background:var(--s-ar)"></i>本土語（預排）</span>
+  <span><i style="border:1.5px dashed var(--line)"></i>導師自由排</span><span><i style="background:repeating-linear-gradient(45deg,var(--off) 0 3px,transparent 3px 6px)"></i>不上課</span>
+  <span>底線＝連堂</span></div>`;
+
+/* ---------- 規則體檢 ---------- */
+const LAYERS = [[0, "法規", "教育局、教育部規定，最優先"], [1, "鎖定", "先鎖住，系統不動"], [2, "必須", "不能違反"], [3, "盡量", "盡量做到，有重要度"]];
+function viewRules() {
+  const notes = [];
+  for (const i of DATA.issues || []) notes.push(`<div class="note ${i.level === "錯誤" ? "err" : "tip"}"><b>${esc(i.level)}</b><span>${esc(i.text)}</span></div>`);
+  for (const i of DATA.insights || []) notes.push(`<div class="note tip"><b>可以調整</b><span>${esc(i.text)}</span></div>`);
+  if (isDemo) notes.push(`<div class="note info"><b>試跑說明</b><span>這是用假資料（71 班、34 位虛構科任）跑的試排，作息與配課是暫定假設。等收集表填好真資料，換檔重跑就會得到正式結果。</span></div>`);
+  let h = notes.length ? `<div class="notes">${notes.join("")}</div>` : "";
+  if (!DATA.rules) return h;
+  for (const [lv, name, desc] of LAYERS) {
+    const rs = DATA.rules.filter(r => r.level === lv);
+    if (!rs.length) continue;
+    h += `<div class="layer"><h3><span class="lv">${lv}</span>${name}<small>${desc}</small></h3>`;
+    for (const r of rs) {
+      const st = r.ok === true ? `<span class="st ok">✓ 做到</span>` : r.ok === false ? `<span class="st part">△ 部分</span>` : `<span class="st skip">— 略過</span>`;
+      const imp = r.importance && r.importance !== "—" ? `<span class="imp">重要度 ${esc(r.importance)}</span>` : "";
+      const det = r.details?.length ? `<ul>${r.details.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
+      h += `<details class="rule"${r.ok === false ? " open" : ""}><summary><span class="id">${esc(r.id)}</span>${st}<span class="what"><b>${esc(r.target)}：${esc(r.content)}</b>${imp}<span>${esc(r.summary)}</span></span></summary>${det}<div class="why">原因：${esc(r.reason)}・積木：${esc(r.block)}</div></details>`;
+    }
+    h += `</div>`;
+  }
+  return h;
+}
+
+/* ---------- 班級課表 ---------- */
+function viewClass() {
+  const names = Object.keys(DATA.classes);
+  const grades = [...new Set(names.map(n => DATA.classes[n].grade))];
+  if (!state.cls || !DATA.classes[state.cls]) state.cls = names.find(n => DATA.classes[n].grade === state.grade) || names[0];
+  const inGrade = names.filter(n => DATA.classes[n].grade === state.grade);
+  const c = DATA.classes[state.cls];
+  const total = Object.values(c.cells).filter(x => x.type !== "off").length + c.free;
+  return `<div class="picker">
+    <div class="chips">${grades.map(g => `<button class="chip grade" aria-pressed="${g === state.grade}" data-g="${g}">${g} 年級</button>`).join("")}</div>
+    <div class="chips">${inGrade.map(n => `<button class="chip" aria-pressed="${n === state.cls}" data-c="${n}">${n.replace(/^\d年/, "")}</button>`).join("")}</div>
+  </div>
+  <div class="sheet">
+    <div class="sheet-head"><h2>${esc(state.cls)}</h2><span class="sub">${esc(c.building)} ${esc(c.floor)} 樓・教室 ${esc(c.room)}</span></div>
+    <div class="facts">
+      <div class="fact"><b>${total}</b><span>一週在校節數</span></div>
+      <div class="fact"><b>${c.subject_hours}</b><span>科任課（系統排好）</span></div>
+      <div class="fact"><b>${c.keep}</b><span>鎖定・保留給導師</span></div>
+      <div class="fact good"><b>${c.free}</b><span>導師自由排的空格</span></div>
+    </div>
+    ${grid(c.cells, "class")}
+    ${legendClass()}
+  </div>`;
+}
+
+/* ---------- 老師課表 ---------- */
+function viewTeacher() {
+  const order = n => n.replace(/[甲乙丙丁戊己庚辛壬癸]/g, c => "甲乙丙丁戊己庚辛壬癸".indexOf(c));
+  const all = Object.keys(DATA.teachers).sort((a, b) => order(a).localeCompare(order(b), "zh-Hant"));
+  const subjects = ["全部", ...new Set(all.flatMap(t => DATA.teachers[t].subjects))];
+  const list = all.filter(t => state.subject === "全部" || DATA.teachers[t].subjects.includes(state.subject));
+  if (!state.teacher || !DATA.teachers[state.teacher]) state.teacher = list[0];
+  const t = DATA.teachers[state.teacher];
+  const max = Math.max(7, ...t.per_day);
+  const lim = 6;
+  const wishHit = Object.values(t.cells).filter(c => c.conflict).length;
+  const moves = countMoves(t);
+  return `<div class="picker">
+    <div class="chips">${subjects.map(s => `<button class="chip grade" aria-pressed="${s === state.subject}" data-s="${s}">${s}</button>`).join("")}</div>
+    <div class="chips">${list.map(n => `<button class="chip" aria-pressed="${n === state.teacher}" data-t="${n}">${esc(n)}<small>${DATA.teachers[n].hours}</small></button>`).join("")}</div>
+  </div>
+  <div class="sheet">
+    <div class="sheet-head"><h2>${esc(state.teacher)}</h2><span class="sub">${esc(t.subjects.join("、"))}・每週 ${t.hours} 節</span></div>
+    <div class="facts">
+      <div class="fact ${Math.max(...t.per_day) > lim ? "alert" : "good"}"><b>${Math.max(...t.per_day)}</b><span>單日最多節數（上限 ${lim}）</span></div>
+      <div class="fact ${wishHit ? "alert" : "good"}"><b>${wishHit}</b><span>排到「希望不排」的格子</span></div>
+      <div class="fact ${moves.far ? "alert" : "good"}"><b>${moves.far}<span style="display:inline;font-size:13px"> / ${moves.all}</span></b><span>連續兩節要爬樓／換棟</span></div>
+      <div class="fact"><b>${Object.values(t.cells).filter(c => ["must", "duty", "lang"].includes(c.type)).length}</b><span>不能排的格子（必須・職務・本土語）</span></div>
+    </div>
+    <div class="bars" aria-label="每天節數">${t.per_day.map((n, i) => `<div><i class="${n > lim ? "over" : ""}" style="height:${n / max * 44}px"></i><span>${DAYS[i]} ${n}</span></div>`).join("")}</div>
+    ${grid(t.cells, "teacher")}
+    <div class="legend"><span><i style="background:var(--bad-bg)"></i>必須不排／職務</span><span><i style="border:1.5px dotted var(--warn)"></i>希望不排（沒排課）</span><span><i style="box-shadow:inset 0 0 0 2px var(--warn)"></i>排到希望不排的格子</span><span>底線＝連堂</span></div>
+  </div>`;
+}
+function countMoves(t) {
+  let all = 0, far = 0;
+  const loc = n => { const c = DATA.classes[n]; return c ? c.building + c.floor : n; };
+  for (const d of DAYS) for (const [p, q] of [[1, 2], [3, 4], [5, 6], [6, 7]]) {
+    const a = t.cells[d + p], b = t.cells[d + q];
+    if (a?.type === "subject" && b?.type === "subject" && a.room === "原班教室" && b.room === "原班教室") { all++; if (loc(a.label) !== loc(b.label)) far++; }
+  }
+  return { all, far };
+}
+
+/* ---------- 專科教室 ---------- */
+function viewRoom() {
+  const rooms = Object.keys(DATA.rooms);
+  if (!state.room || !DATA.rooms[state.room]) state.room = rooms[0];
+  const r = DATA.rooms[state.room];
+  const cells = {};
+  let used = 0, peak = 0;
+  for (const d of DAYS) for (const p of DATA.periods) {
+    const list = r.use[d + p] || [];
+    used += list.length; peak = Math.max(peak, list.length);
+    if (!list.length) continue;
+    const ratio = list.length / r.cap;
+    cells[d + p] = { type: "room", n: list.length, list, ratio };
+  }
+  const slots = DAYS.length * DATA.periods.length;
+  let h = `<div class="scroll"><table class="tt"><thead><tr><th class="p"></th>${DAYS.map(d => `<th>星期${d}</th>`).join("")}</tr></thead><tbody>`;
+  for (const p of ROWS) {
+    if (typeof p !== "number") { h += `<tr class="brk"><td></td><td colspan="5">${p}</td></tr>`; continue; }
+    h += `<tr><th class="p">${p}</th>`;
+    for (const d of DAYS) {
+      const c = cells[d + p];
+      h += `<td>${c ? `<div class="c" style="background:color-mix(in srgb, var(--accent) ${Math.round(12 + c.ratio * 50)}%, var(--sheet));color:${c.ratio > .6 ? "var(--accent-ink)" : "var(--ink)"}" title="${esc(c.list.join("、"))}"><span class="l room-c">${c.n}/${r.cap}</span><span class="w">${esc(c.list.slice(0, 3).join(" "))}${c.list.length > 3 ? "…" : ""}</span></div>` : `<div class="c free" style="border-color:var(--soft)"></div>`}</td>`;
+    }
+    h += `</tr>`;
+  }
+  h += `</tbody></table></div>`;
+  return `<div class="picker"><div class="chips">${rooms.map(n => `<button class="chip grade" aria-pressed="${n === state.room}" data-r="${n}">${esc(n)}<small>${DATA.rooms[n].cap} 間</small></button>`).join("")}</div></div>
+  <div class="sheet">
+    <div class="sheet-head"><h2>${esc(state.room)}</h2><span class="sub">${esc(r.where || "")}・同一節最多 ${r.cap} 班</span></div>
+    <div class="facts">
+      <div class="fact"><b>${used}</b><span>一週使用節數</span></div>
+      <div class="fact ${peak > r.cap ? "alert" : "good"}"><b>${peak}/${r.cap}</b><span>同一節最多幾班</span></div>
+      <div class="fact"><b>${Math.round(used / (r.cap * slots) * 100)}%</b><span>使用率（以全週 35 格計）</span></div>
+    </div>
+    ${h}
+    <div class="legend"><span>顏色越深＝同一節使用的班越多；格子裡是「使用班數／可用間數」，滑過可看全部班級。</span></div>
+  </div>`;
+}
+
+/* ---------- 全年級總表 ---------- */
+function viewGrade() {
+  const names = Object.keys(DATA.classes).filter(n => DATA.classes[n].grade === state.mxGrade);
+  const grades = [...new Set(Object.values(DATA.classes).map(c => c.grade))];
+  let h = `<div class="scroll"><table class="mx"><thead><tr><th class="cn">班級</th>`;
+  for (const d of DAYS) DATA.periods.forEach(p => { h += `<th>${p === 1 ? `<b>${d}</b>` : ""}<br>${p}</th>`; });
+  h += `</tr></thead><tbody>`;
+  for (const n of names) {
+    h += `<tr><td class="cn">${n.replace(/^\d年/, "")}</td>`;
+    for (const d of DAYS) DATA.periods.forEach(p => {
+      const c = DATA.classes[n].cells[d + p];
+      const cls = p === 1 ? ' class="d0"' : "";
+      if (!c) { h += `<td${cls}></td>`; return; }
+      let st = "", txt = "";
+      if (c.type === "subject") { st = subjStyle(c.label); txt = c.label[0]; }
+      else if (c.type === "off") { st = "background:repeating-linear-gradient(45deg,var(--soft) 0 4px,transparent 4px 8px)"; }
+      else if (c.type === "lang") { st = "background:var(--s-ar);color:var(--s-ar-i)"; txt = "本"; }
+      else { st = "background:var(--lock);color:var(--lock-ink)"; txt = c.label[0]; }
+      h += `<td${cls} style="${st}"><button data-open="${n}" title="${esc(n)} 星期${d}第${p}節：${esc(c.label)}${c.who ? "・" + esc(c.who) : ""}">${esc(txt)}</button></td>`;
+    });
+    h += `</tr>`;
+  }
+  h += `</tbody></table></div>`;
+  return `<div class="picker"><div class="chips">${grades.map(g => `<button class="chip grade" aria-pressed="${g === state.mxGrade}" data-mg="${g}">${g} 年級</button>`).join("")}</div></div>
+  <div class="sheet"><div class="sheet-head"><h2>${state.mxGrade} 年級總表</h2><span class="sub">一眼看出整個年級的科任分布；點任一格打開該班課表</span></div>${h}${legendClass()}</div>`;
+}
+
+/* ---------- 主畫面 ---------- */
+function render() {
+  const main = document.getElementById("main");
+  const ok = !!DATA.classes;
+  const v = ok ? state.view : "rules";
+  const html = { rules: viewRules, class: viewClass, teacher: viewTeacher, room: viewRoom, grade: viewGrade }[v]();
+  main.innerHTML = `<section class="view" role="tabpanel" aria-labelledby="tab-${v}">${html}</section>`;
+}
+document.getElementById("main").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const ds = b.dataset;
+  if (ds.g) { state.grade = +ds.g; state.cls = null; }
+  if (ds.c) state.cls = ds.c;
+  if (ds.s) { state.subject = ds.s; state.teacher = null; }
+  if (ds.t) state.teacher = ds.t;
+  if (ds.r) state.room = ds.r;
+  if (ds.mg) state.mxGrade = +ds.mg;
+  if (ds.open) { const c = DATA.classes[ds.open]; return go("class", { grade: c.grade, cls: ds.open }); }
+  save(); render();
+});
+const h0 = (location.hash || "").slice(1);
+if (TABS.some(([k]) => k === h0)) state.view = h0;
+cover(); tabs(); render();
+document.getElementById("foot").innerHTML = `<span>排課引擎：Google OR-Tools（CP-SAT）・規則來源：收集表「規則表」，新增一列就是新規則。</span><span>這個頁面由程式自動產生，重跑排課就會更新。</span>`;
+</script>
