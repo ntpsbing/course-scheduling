@@ -43,10 +43,11 @@ def is_example(row):
     return any("範例" in cell_str(v) for v in row)
 
 
-def read_rows(ws, first_row, ncols):
+def read_rows(table, first_row, ncols, first_col=1):
+    """table＝一張工作表的所有儲存格（二維清單）；回傳去掉空白列與範例列的字串列。"""
     out = []
-    for r in ws.iter_rows(min_row=first_row, max_col=ncols, values_only=True):
-        r = [cell_str(v) for v in r]
+    for r in table[first_row - 1:]:
+        r = [cell_str(v) for v in list(r[first_col - 1:ncols]) + [None] * ncols][:ncols - first_col + 1]
         if not any(r) or is_example(r):
             continue
         out.append(r)
@@ -90,8 +91,23 @@ def parse_grades(target):
     return g
 
 
-def load(path):
+SHEETS = ["規則表", "科任配課", "本土語預排", "特教抽離", "共同時段", "職務限制", "班級教室", "老師需求"]
+
+
+def xlsx_to_tables(path):
     wb = openpyxl.load_workbook(path, data_only=True)
+    return {n: [list(r) for r in wb[n].iter_rows(values_only=True)] for n in SHEETS}
+
+
+def load(path):
+    return load_tables(xlsx_to_tables(path))
+
+
+def load_tables(wb):
+    """wb＝{工作表名稱: 二維清單}；可來自 xlsx，也可來自 Google 試算表（Apps Script 傳來的 JSON）。"""
+    missing = [n for n in SHEETS if n not in wb]
+    if missing:
+        raise ValueError(f"試算表缺少工作表：{'、'.join(missing)}")
     d = {}
     d["rules"] = [dict(id=r[0], level=int(r[1][:1]) if r[1][:1].isdigit() else 3, block=r[2],
                        target=r[3], content=r[4], importance=r[5], enabled=(r[6] != "否"), reason=r[7])
@@ -118,8 +134,7 @@ def load(path):
             d["classes"][r[0]] = dict(building=r[1], floor=floor, room=r[3],
                                       grade=int(r[0].split("年")[0]))
     d["rooms"] = {}
-    for r in ws.iter_rows(min_row=4, min_col=7, max_col=11, values_only=True):
-        r = [cell_str(v) for v in r]
+    for r in read_rows(ws, 4, 11, first_col=7):
         if r[0]:
             cap = r[2] or r[1] or "1"
             d["rooms"][r[0]] = dict(cap=int(float(cap)), where=r[3], subjects=r[4])
@@ -638,28 +653,32 @@ def build_output(s, src_name):
         rules=check(s), issues=s.issues, relaxed=getattr(s, "relaxed_hits", []))
 
 
+def run(data, src_name, time_limit=60, log=print):
+    """完整排課流程：事前檢查 → 排課 → 排不出來就放寬重排 → 規則體檢。回傳結果 dict。"""
+    s = Scheduler(data)
+    s.precheck()
+    for i in s.issues:
+        log(f"[{i['level']}] {i['text']}")
+    ok = s.solve(time_limit)
+    if not ok:
+        log("照規則排不出來，改用「放寬老師時段」再試一次，找出卡住的地方…")
+        s.issues.append(dict(level="錯誤", text="照全部規則排不出來；下面的課表是放寬「老師不排時段（必須）」與「職務」後的結果；被迫排進去的格子列在規則體檢的 R01、R12。"))
+        ok = s.solve(time_limit, relax=True)
+    log(s.solve_info)
+    if not ok:
+        return dict(meta=dict(source=src_name, **s.solve_info), issues=s.issues)
+    result = build_output(s, src_name)
+    for r in result["rules"]:
+        mark = {True: "✅", False: "⚠️", None: "—"}[r["ok"]]
+        log(f"{mark} {r['id']} {r['block']}｜{r['summary']}")
+    return result
+
+
 def main():
     src = Path(sys.argv[1])
     out_dir = Path(sys.argv[2]) if len(sys.argv) > 2 else src.parent
     out_dir.mkdir(parents=True, exist_ok=True)
-    data = load(src)
-    s = Scheduler(data)
-    s.precheck()
-    for i in s.issues:
-        print(f"[{i['level']}] {i['text']}")
-    ok = s.solve()
-    if not ok:
-        print("照規則排不出來，改用「放寬老師時段」再試一次，找出卡住的地方…")
-        s.issues.append(dict(level="錯誤", text="照全部規則排不出來；下面的課表是放寬「老師不排時段（必須）」與「職務」後的結果，紅框是被迫排進去的格子。"))
-        ok = s.solve(relax=True)
-    print(s.solve_info)
-    if not ok:
-        result = dict(meta=dict(source=src.name, **s.solve_info), issues=s.issues)
-    else:
-        result = build_output(s, src.name)
-        for r in result["rules"]:
-            mark = {True: "✅", False: "⚠️", None: "—"}[r["ok"]]
-            print(f"{mark} {r['id']} {r['block']}｜{r['summary']}")
+    result = run(load(src), src.name)
     (out_dir / "排課結果.json").write_text(json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
     return result
 

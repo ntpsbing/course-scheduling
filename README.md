@@ -33,6 +33,9 @@
 | [engine/scheduler.py](engine/scheduler.py) | 排課引擎（Google OR-Tools）：讀收集表，依規則表四層規則排課，產生規則體檢 |
 | [engine/export.py](engine/export.py) | 把排課結果輸出成課表檢視網頁與灰階列印 Excel |
 | [engine/make_demo_data.py](engine/make_demo_data.py) | 產生試跑用假資料（老師代號全為虛構） |
+| [engine/run_remote.py](engine/run_remote.py) | GitHub Actions 用：向試算表拿資料（姓名已換代號）→ 排課 → 送回 |
+| [apps-script/排課系統.gs](apps-script/排課系統.gs) | 貼進 Google 試算表的程式：「排課系統」選單、開始排課、結果寫回、初次設定 |
+| [docs/開始排課按鈕_安裝說明.md](docs/開始排課按鈕_安裝說明.md) | 「開始排課」按鈕的安裝步驟（全程瀏覽器點選） |
 | [試跑/](試跑/) | 假資料試跑的輸入與結果：`課表檢視.html`、`排課結果_灰階列印.xlsx` |
 
 ## 進度
@@ -41,7 +44,8 @@
 - [ ] 收集資料：配課、本土語、特教抽離、職務限制、老師需求
 - [x] 技術方向定案：Google 試算表放資料＋OR-Tools 排課引擎（2026-10-21）
 - [x] 排課引擎第一版，71 班假資料試跑成功（4.6 秒，0–2 層規則全部做到）
-- [ ] 排課系統（Google 試算表＋網頁）
+- [x] Google 試算表「開始排課」按鈕（Apps Script ＋ GitHub Actions，姓名換代號再送出）
+- [ ] 在學校試算表安裝按鈕並實測
 - [ ] 先用一個年級試跑 → 全校排課 → 116 年 1 月下學期課表定案
 - [ ] 接上課表確認系統、代課系統
 
