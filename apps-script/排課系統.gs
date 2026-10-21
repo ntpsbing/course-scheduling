@@ -13,6 +13,7 @@ const REPO = 'ntpsbing/course-scheduling';
 const VIEWER_URL = 'https://raw.githubusercontent.com/' + REPO + '/main/web/' +
   encodeURIComponent('課表檢視.template.html');
 const SHEETS = ['規則表', '科任配課', '本土語預排', '特教抽離', '共同時段', '職務限制', '班級教室', '老師需求'];
+const OPTIONAL_SHEETS = ['班級需求']; // 沒有這張也能排
 // 哪些欄放老師姓名（從 0 起算）、資料從第幾列開始 → 送出前換成代號
 const NAME_COLS = {
   '科任配課': { cols: [0], from: 5 },
@@ -23,7 +24,7 @@ const NAME_COLS = {
 };
 const DAYS = ['一', '二', '三', '四', '五'];
 const PERIODS = [1, 2, 3, 4, 5, 6, 7];
-const GRAY = { subject: '#ffffff', lock: '#d9d9d9', sped: '#bfbfbf', lang: '#efefef', off: '#808080', head: '#d9d9d9' };
+const GRAY = { subject: '#ffffff', lock: '#d9d9d9', keep: '#d9d9d9', sped: '#bfbfbf', lang: '#efefef', off: '#808080', head: '#d9d9d9' };
 const props = () => PropertiesService.getScriptProperties();
 
 /* ---------------- 選單 ---------------- */
@@ -148,7 +149,8 @@ function buildTables_(ss) {
     return to[name];
   };
   const tables = {};
-  SHEETS.forEach(n => {
+  SHEETS.concat(OPTIONAL_SHEETS).forEach(n => {
+    if (!ss.getSheetByName(n)) return;
     const values = ss.getSheetByName(n).getDataRange().getValues();
     const rule = NAME_COLS[n];
     if (rule) {
@@ -174,6 +176,7 @@ function writeResult_(ss, r) {
     writeGrid_(ss, '排課結果', '班級', Object.keys(r.classes), name => r.classes[name].cells, c => {
       if (c.type === 'subject') return c.label + '\n' + c.who + (c.room && c.room !== '原班教室' ? '\n@' + c.room.slice(0, 2) : '');
       if (c.type === 'sped') return c.label + '\n抽離・導師';
+      if (c.type === 'keep') return '導師\n' + (c.note || '');
       if (c.type === 'off') return '';
       return c.label + (c.who ? '\n' + c.who : '');
     }, name => { const c = r.classes[name]; return [c.subject_hours, c.keep, c.free]; }, ['科任節數', '保留給導師', '導師空格'], '導師');

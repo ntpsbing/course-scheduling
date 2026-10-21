@@ -228,6 +228,7 @@ function cell(c, kind) {
   }
   if (t === "off") return `<div class="c off">不上課</div>`;
   if (t === "lock") return `<div class="c lock"><span class="tag">鎖定</span><span class="l">${esc(c.label)}</span><span class="w">${esc(c.who || "")}上</span></div>`;
+  if (t === "keep") return `<div class="c sped" title="${esc(c.note || "")}"><span class="tag">保留</span><span class="l">導師</span><span class="w">${esc(c.note || "導師需求")}</span></div>`;
   if (t === "sped") return `<div class="c sped" title="${esc(c.note || "")}"><span class="tag">保留</span><span class="l">${esc(c.label)}</span><span class="w">抽離・導師上</span></div>`;
   if (t === "lang") return `<div class="c lang" title="${esc(c.note || "")}"><span class="tag">鎖定</span><span class="l">${esc(c.label)}</span><span class="w">${esc(c.who || c.note || "")}</span></div>`;
   if (t === "must") return `<div class="c must" title="${esc(c.note || "")}"><span class="l">必須不排</span><span class="w">${esc(c.note || "")}</span></div>`;
