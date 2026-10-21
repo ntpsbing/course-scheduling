@@ -12,7 +12,6 @@ ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "收集表" / "115_10_排課需求收集表.xlsx"
 OUT = ROOT / "試跑" / "試跑資料_排課需求收集表.xlsx"
 
-random.seed(115)
 DAYS = ["一", "二", "三", "四", "五"]
 GANZHI = "甲乙丙丁戊己庚辛壬癸"
 CLASSES = {1: 12, 2: 11, 3: 12, 4: 12, 5: 12, 6: 12}
@@ -62,7 +61,8 @@ def class_slots(g):
     return out
 
 
-def main():
+def main(seed=115, out=OUT):
+    random.seed(seed)
     wb = openpyxl.load_workbook(TEMPLATE)
 
     # 1. 科任配課：每科依目標節數切給老師（同一位老師教連續的班，比較貼近實際）
@@ -95,8 +95,9 @@ def main():
     # 3. 本土語預排：每班 1 節閩南語，閩南語甲 23 班、乙 22 班、丙 21 班、丁 3 班、科任英語乙兼 2 班；
     #    少數班有客語／族語／新住民語學生，同一節到別處分組上課（同一位老師同一節帶多班＝合班，正常）
     ws = wb["本土語預排"]
-    # 每位閩南語老師的班級高低年級混搭（若 23 班全是低年級，低年級一週只有 21 格能上，一定排不下）
-    all_classes = sorted([(g, i) for g, n in CLASSES.items() for i in range(1, n + 1)], key=lambda x: (x[1], x[0]))
+    # 跟學校實際預排一樣：每位閩南語老師的班級跳班、跳年級，隨機打散
+    all_classes = [(g, i) for g, n in CLASSES.items() for i in range(1, n + 1)]
+    random.shuffle(all_classes)
     load = [("閩南語甲", 23), ("閩南語乙", 22), ("閩南語丙", 21), ("閩南語丁", 3), ("英語乙", 2)]
     busy = {}
     rows = []
@@ -190,10 +191,11 @@ def main():
         dv.sqref = openpyxl.worksheet.cell_range.MultiCellRange(
             str(dv.sqref).replace("19", "40"))
 
-    OUT.parent.mkdir(exist_ok=True)
-    wb.save(OUT)
-    print(f"已產生 {OUT.relative_to(ROOT)}：{len(teachers)} 位科任、{len(assign)} 筆配課")
+    out.parent.mkdir(exist_ok=True)
+    wb.save(out)
+    print(f"已產生 {out.name}：{len(teachers)} 位科任、{len(assign)} 筆配課")
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(int(sys.argv[1]) if len(sys.argv) > 1 else 115, Path(sys.argv[2]) if len(sys.argv) > 2 else OUT)
