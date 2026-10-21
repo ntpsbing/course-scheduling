@@ -92,24 +92,30 @@ def main():
         for j, v in enumerate(r):
             ws.cell(4 + i, 1 + j, v)
 
-    # 3. 本土語預排：每班 1 節，同一時段的本土語老師不重複；兩班由科任「英語乙」兼任
+    # 3. 本土語預排：每班 1 節閩南語，閩南語甲 23 班、乙 22 班、丙 21 班、丁 3 班、科任英語乙兼 2 班；
+    #    少數班有客語／族語／新住民語學生，同一節到別處分組上課（同一位老師同一節帶多班＝合班，正常）
     ws = wb["本土語預排"]
-    used = {}
-    row = 5
-    for g, n in CLASSES.items():
-        for i in range(1, n + 1):
-            d, p = random.choice([s for s in class_slots(g) if s[1] != 7])
-            k = used.get((d, p), 0)
-            used[(d, p)] = k + 1
-            teacher = f"本土語{GANZHI[k % 10]}{'' if k < 10 else k // 10}"
-            lang = "閩南語" if random.random() < 0.85 else random.choice(["客語", "族語", "新住民語"])
-            vals = [class_name(g, i), d, str(p), lang, teacher, "原班教室", None]
-            for j, v in enumerate(vals):
-                ws.cell(row, 1 + j, v)
-            row += 1
-    ws.cell(5, 5, "英語乙")
-    ws.cell(5, 7, "（試跑）科任兼本土語")
-    ws.cell(6, 5, "英語乙")
+    # 每位閩南語老師的班級高低年級混搭（若 23 班全是低年級，低年級一週只有 21 格能上，一定排不下）
+    all_classes = sorted([(g, i) for g, n in CLASSES.items() for i in range(1, n + 1)], key=lambda x: (x[1], x[0]))
+    load = [("閩南語甲", 23), ("閩南語乙", 22), ("閩南語丙", 21), ("閩南語丁", 3), ("英語乙", 2)]
+    busy = {}
+    rows = []
+    k = 0
+    for t, n in load:
+        for g, i in all_classes[k:k + n]:
+            options = [s2 for s2 in class_slots(g) if s2[1] != 7 and (t, s2) not in busy
+                       and sum(1 for (t2, s3) in busy if t2 == t and s3[0] == s2[0]) < 6]
+            d, p = random.choice(options)
+            busy[(t, (d, p))] = class_name(g, i)
+            rows.append([class_name(g, i), d, str(p), "閩南語", t, "原班教室", "（試跑）科任兼本土語" if t == "英語乙" else None])
+        k += n
+    for idx in random.sample(range(len(rows)), 10):
+        lang, t = random.choice([("客語", "客語甲"), ("客語", "客語甲"), ("族語", "族語甲"), ("新住民語", "新住民語甲")])
+        r0 = rows[idx]
+        rows.append([r0[0], r0[1], r0[2], lang, t, "本土語教室", "分組上課"])
+    for r, vals in enumerate(rows):
+        for j, v in enumerate(vals):
+            ws.cell(5 + r, 1 + j, v)
 
     # 4. 特教抽離：10 筆
     ws = wb["特教抽離"]

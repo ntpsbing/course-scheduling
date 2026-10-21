@@ -167,7 +167,7 @@ footer { margin-top: 28px; color: var(--muted); font-size: 12px; display: grid; 
 const DATA = __DATA__;
 const DAYS = DATA.days || ["一","二","三","四","五"];
 const ROWS = [1, 2, "大下課", 3, 4, "午餐・午休", 5, 6, 7];
-const SUBJ = { 英語: "en", 自然: "sc", 社會: "so", 體育: "pe", 音樂: "mu", 資訊: "it", 健康: "he", 美勞: "ar", 表演藝術: "ar" };
+const SUBJ = { 英語: "en", 自然: "sc", 社會: "so", 體育: "pe", 音樂: "mu", 資訊: "it", 健康: "he", 美勞: "ar", 表演藝術: "ar", 閩南語: "ar", 客語: "ar", 族語: "ar", 新住民語: "ar" };
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const subjStyle = s => { const k = SUBJ[s] || "xx"; return `background:var(--s-${k});color:var(--s-${k}-i)`; };
 const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
@@ -311,11 +311,11 @@ function viewTeacher() {
       <div class="fact ${Math.max(...t.per_day) > lim ? "alert" : "good"}"><b>${Math.max(...t.per_day)}</b><span>單日最多節數（上限 ${lim}）</span></div>
       <div class="fact ${wishHit ? "alert" : "good"}"><b>${wishHit}</b><span>排到「希望不排」的格子</span></div>
       <div class="fact ${moves.far ? "alert" : "good"}"><b>${moves.far}<span style="display:inline;font-size:13px"> / ${moves.all}</span></b><span>連續兩節要爬樓／換棟</span></div>
-      <div class="fact"><b>${Object.values(t.cells).filter(c => ["must", "duty", "lang"].includes(c.type)).length}</b><span>不能排的格子（必須・職務・本土語）</span></div>
+      <div class="fact"><b>${Object.values(t.cells).filter(c => c.type === "lang").length}</b><span>預排本土語（鎖定）</span></div>
     </div>
     <div class="bars" aria-label="每天節數">${t.per_day.map((n, i) => `<div><i class="${n > lim ? "over" : ""}" style="height:${n / max * 44}px"></i><span>${DAYS[i]} ${n}</span></div>`).join("")}</div>
     ${grid(t.cells, "teacher")}
-    <div class="legend"><span><i style="background:var(--bad-bg)"></i>必須不排／職務</span><span><i style="border:1.5px dotted var(--warn)"></i>希望不排（沒排課）</span><span><i style="box-shadow:inset 0 0 0 2px var(--warn)"></i>排到希望不排的格子</span><span>底線＝連堂</span></div>
+    <div class="legend"><span><i style="background:var(--s-ar)"></i>本土語（預排鎖定）</span><span><i style="background:var(--bad-bg)"></i>必須不排／職務</span><span><i style="border:1.5px dotted var(--warn)"></i>希望不排（沒排課）</span><span><i style="box-shadow:inset 0 0 0 2px var(--warn)"></i>排到希望不排的格子</span><span>底線＝連堂</span></div>
   </div>`;
 }
 function countMoves(t) {

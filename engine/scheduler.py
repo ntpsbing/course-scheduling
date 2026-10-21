@@ -185,12 +185,14 @@ class Scheduler:
                     elif k not in self.grid[c]:
                         self.grid[c][k] = dict(type="lock", label=row["activity"], who=row["who"])
         self.teacher_block = defaultdict(dict)  # 老師 → 格 → 原因（不能排）
+        self.lang_slots = defaultdict(lambda: defaultdict(list))  # 本土語老師 → 格 → [(班級, 語別)]
         if self.rule_enabled_for_target("本土語"):
             for row in d["lang"]:
                 k = slot_key(row["day"], row["period"])
                 if row["cls"] in self.grid:
                     self.grid[row["cls"]][k] = dict(type="lang", label=row["lang"], who=row["teacher"])
                 self.teacher_block[row["teacher"]][k] = f"本土語（{row['cls']}）"
+                self.lang_slots[row["teacher"]][k].append((row["cls"], row["lang"]))
         if self.rule_enabled_for_target("特教抽離"):
             for row in d["sped"]:
                 k = slot_key(row["day"], row["period"])
@@ -257,11 +259,18 @@ class Scheduler:
             hrs = sum(a["hours"] for a in rows)
             blocked = self.teacher_hard_block(t)
             avail = len([k for k in all_slots if k not in blocked])
+            # 只算「至少有一個任教班級在校、沒鎖定」的格子（例如只教低年級的老師，下午幾乎都不能排）
+            usable = len([k for k in all_slots if k not in blocked
+                          and any(self.free(a["cls"], k) and k not in self.subj_forbid.get(a["subject"], set())
+                                  for a in rows)])
             if hrs > avail:
                 self.issues.append(dict(level="錯誤", text=f"{t} 要上 {hrs} 節，但扣掉不能排的時段只剩 {avail} 格。"))
+            elif hrs > usable:
+                self.issues.append(dict(level="錯誤", text=f"{t} 要上 {hrs} 節，但任教班級的在校時段加起來只有 {usable} 格（例如低年級下午不上課），一定排不下，請調整配課。"))
             n_must = len(self.must.get(t, {}))
             if n_must > 3:
                 self.issues.append(dict(level="提醒", text=f"{t} 勾了 {n_must} 節「必須」不排，超過每人 3 節的上限。"))
+        self.precheck_lang()
         for c in d["classes"]:
             need = sum(a["hours"] for a in d["assign"] if a["cls"] == c)
             free = len([k for k in all_slots if self.free(c, k)])
@@ -274,6 +283,39 @@ class Scheduler:
                 self.issues.append(dict(level="錯誤", text=f"{room} 一週要用 {need} 節，但 {info['cap']} 間 × {slots} 格只夠 {info['cap'] * slots} 節。"))
             elif need > 0.85 * info["cap"] * slots:
                 self.issues.append(dict(level="提醒", text=f"{room} 使用率 {need * 100 // (info['cap'] * slots)}%，很擠，可能讓其他規則難以做到。"))
+
+    def precheck_lang(self):
+        """檢查「本土語預排」本身有沒有排錯：老師撞堂、排在不上課或鎖定時段、單日節數過多。"""
+        d = self.d
+        lim = next((int(re.search(r"\d+", r["content"]).group()) for r in self.on("每日節數上限")), 6)
+        base = {c: {} for c in d["classes"]}  # 只看共同時段（不含本土語自己）
+        for row in d["common"]:
+            grades = parse_grades(row["target"])
+            for c, info in d["classes"].items():
+                if (grades is None and c == row["target"]) or (grades is not None and info["grade"] in grades):
+                    for p in row["periods"]:
+                        base[c][slot_key(row["day"], p)] = row["activity"]
+        for row in d["lang"]:
+            k = slot_key(row["day"], row["period"])
+            where = f"{row['cls']} 星期{row['day']}第{row['period']}節"
+            if row["cls"] not in d["classes"]:
+                self.issues.append(dict(level="錯誤", text=f"本土語預排的班級「{row['cls']}」不在「班級教室」頁。"))
+            elif k in base[row["cls"]]:
+                self.issues.append(dict(level="錯誤", text=f"本土語預排：{where}（{row['teacher']}）排在「{base[row['cls']][k]}」的時段，請改時間。"))
+        for t, slots in self.lang_slots.items():
+            for k, rows in slots.items():
+                classes = sorted({c for c, _ in rows})
+                langs = {lg for _, lg in rows}
+                if len(classes) > 1 and "閩南語" in langs:
+                    self.issues.append(dict(level="錯誤", text=f"本土語預排：{t} 星期{k[0]}第{k[1:]}節同時排了 {'、'.join(classes)}，閩南語是整班上課，會撞堂。（如果真的是合班上課，可以忽略）"))
+            for dd in DAYS:
+                n = len([k for k in slots if k[0] == dd])
+                if n > lim:
+                    self.issues.append(dict(level="提醒", text=f"本土語預排：{t} 星期{dd} 就有 {n} 節本土語，超過每天 {lim} 節。"))
+            total = len(slots)
+            busy = sum(a["hours"] for a in d["assign"] if a["teacher"] == t)
+            if busy:
+                self.issues.append(dict(level="提醒", text=f"{t} 同時有本土語 {total} 節＋科任 {busy} 節，系統已自動避開本土語時段。"))
 
     # ----- 建模 -----
     def solve(self, time_limit=60, relax=False):
@@ -409,13 +451,14 @@ class Scheduler:
             for t, slots in occ_teacher.items():
                 for dd in DAYS:
                     xs = [x for p in PERIODS for x in slots.get(slot_key(dd, p), [])]
-                    if len(xs) <= lim:
+                    fixed = len([k for k in self.lang_slots.get(t, {}) if k[0] == dd])  # 已預排的本土語
+                    if len(xs) + fixed <= lim:
                         continue
                     if r["level"] <= 2:
-                        m.Add(sum(xs) <= lim)
+                        m.Add(sum(xs) + fixed <= lim)
                     else:
                         ex = m.NewIntVar(0, 7, f"dl{t}{dd}")
-                        m.Add(ex >= sum(xs) - lim)
+                        m.Add(ex >= sum(xs) + fixed - lim)
                         penalties.append((w, ex))
         # 跑班距離：只看到班上課的節
         self.walk_cost = {}
@@ -557,12 +600,14 @@ def check(s):
         elif b == "每日節數上限":
             lim = int(re.search(r"\d+", r["content"]).group())
             bad = []
-            for t, ls in by_teacher.items():
+            for t in sorted(set(by_teacher) | set(s.lang_slots)):
                 for dd in DAYS:
-                    n = len([l for l in ls if l["day"] == dd])
-                    if n > lim:
-                        bad.append(f"{t} 星期{dd} {n} 節")
-            add(r, not bad, f"所有科任每天都在 {lim} 節以內" if not bad else f"{len(bad)} 人次超過", bad)
+                    n = len([l for l in by_teacher.get(t, []) if l["day"] == dd])
+                    fixed = len([k for k in s.lang_slots.get(t, {}) if k[0] == dd])
+                    if n + fixed > lim:
+                        note = "（全是預排本土語，系統無法調整）" if n == 0 else (f"（含預排本土語 {fixed} 節）" if fixed else "")
+                        bad.append(f"{t} 星期{dd} {n + fixed} 節{note}")
+            add(r, not bad, f"所有老師每天都在 {lim} 節以內（含本土語）" if not bad else f"{len(bad)} 人次超過", bad)
         elif b == "跑班距離":
             moves, bad = 0, []
             for t, ls in by_teacher.items():
@@ -619,10 +664,15 @@ def build_output(s, src_name):
         t = teachers.setdefault(a["teacher"], dict(subjects=set(), hours=0, cells={}))
         t["subjects"].add(a["subject"])
         t["hours"] += a["hours"]
+    for t, slots in s.lang_slots.items():  # 本土語老師也列出來（課是預排鎖定的）
+        info = teachers.setdefault(t, dict(subjects=set(), hours=0, cells={}))
+        for k, rows in slots.items():
+            info["subjects"].update(lg for _, lg in rows)
+            info["hours"] += 1
+            info["cells"][k] = dict(type="lang", label="、".join(sorted({c for c, _ in rows})),
+                                    who="、".join(sorted({lg for _, lg in rows})) + "・預排", note="本土語（預排鎖定）")
     for t, info in teachers.items():
         info["subjects"] = sorted(info["subjects"])
-        for k, why in s.teacher_block.get(t, {}).items():
-            info["cells"][k] = dict(type="lang", label="本土語", note=why)
         for k, why in s.duty_slots.get(t, {}).items():
             info["cells"][k] = dict(type="duty", label="職務", note=why)
         for k, why in s.must.get(t, {}).items():
@@ -636,7 +686,7 @@ def build_output(s, src_name):
                                                   room=l["room"], block=l["block"],
                                                   conflict=prev["type"] if prev and prev["type"] == "wish" else None)
     for t, info in teachers.items():
-        per_day = [len([1 for p in PERIODS if info["cells"].get(slot_key(dd, p), {}).get("type") == "subject"])
+        per_day = [len([1 for p in PERIODS if info["cells"].get(slot_key(dd, p), {}).get("type") in ("subject", "lang")])
                    for dd in DAYS]
         info["per_day"] = per_day
     rooms = {}
