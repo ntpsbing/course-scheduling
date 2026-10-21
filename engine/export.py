@@ -46,7 +46,7 @@ THIN = Side(style="thin", color="808080")
 BOX = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 FILL = {"head": PatternFill("solid", fgColor="D9D9D9"), "lock": PatternFill("solid", fgColor="BFBFBF"),
         "off": PatternFill("solid", fgColor="808080"), "lang": PatternFill("solid", fgColor="EDEDED"),
-        "sped": PatternFill("solid", fgColor="BFBFBF"), "must": PatternFill("solid", fgColor="A6A6A6"),
+        "sped": PatternFill("solid", fgColor="BFBFBF"), "keep": PatternFill("solid", fgColor="D9D9D9"), "must": PatternFill("solid", fgColor="A6A6A6"),
         "duty": PatternFill("solid", fgColor="A6A6A6"), "wish": PatternFill("solid", fgColor="EDEDED"),
         "break": PatternFill("solid", fgColor="F2F2F2")}
 CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
@@ -62,6 +62,8 @@ def cell_text(c, kind):
             return f"{c['label']}\n{c['who']}{room}"
         if t == "sped":
             return f"{c['label']}（保留）\n抽離・導師上"
+        if t == "keep":
+            return f"導師（保留）\n{c.get('note', '')}"
         if t == "lock":
             return f"{c['label']}（鎖定）\n{c.get('who', '')}"
         if t == "lang":

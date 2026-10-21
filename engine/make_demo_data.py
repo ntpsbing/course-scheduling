@@ -53,6 +53,8 @@ def class_slots(g):
                 continue
             if g <= 2 and p >= 5 and d != "二":
                 continue
+            if g <= 2 and p in (1, 4):  # 低年級導師需求：第 1、4 節導師上課
+                continue
             if d == "三" and p == 1:
                 continue
             if g in (3, 4) and d in ("一", "五") and p >= 5:  # 星期一下午綜合（鎖定）、星期五下午不上課
@@ -63,8 +65,12 @@ def class_slots(g):
     return out
 
 
-NEW_RULES = [  # 2026-10-21 新增（R17 待 Bing 確認，可改「否」關閉）
-    ["R17", "3 盡量", "同科分散", "所有科任", "同一班同一科一天最多 1 次（連堂算 1 次）", "高", "是", "避免同一天上兩次同科"],
+NEW_RULES = [
+    ["R19", "2 必須", "班級不排時段", "個別班級", "導師勾「必須」的時段不排科任（依「班級需求」頁；可填「每天」「二、四擇一」）", "—",
+     "是", "導師需要自己上課的時段"],
+    ["R20", "3 盡量", "班級不排時段", "個別班級", "導師勾「希望」的時段盡量不排科任（依「班級需求」頁）", "中", "是", "導師的希望"],
+    # 以下 2026-10-21 新增，Bing 確認保留（可改「否」關閉）
+    ["R17", "3 盡量", "同科分散", "所有科任", "同一班同一科一天最多 1 次（連堂算 1 次）", "高", "是", "避免同一天上兩次同科（Bing 2026-10-21 確認保留）"],
     ["R18", "3 盡量", "間隔天數", "自然", "同一班自然各次上課至少隔 1 天（例：星期一上連堂，原班那節排星期三以後）", "中",
      "是", "Bing 2026-10-21：原班那節要不同天，最好差一天"],
 ]
@@ -77,19 +83,28 @@ def add_rules(wb):
     for r in range(4, ws.max_row + 1):
         if ws.cell(r, 1).value == "R11":
             ws.cell(r, 5, R11_TEXT)
-    for k, row in enumerate(NEW_RULES):
+    for k, row in enumerate(sorted(NEW_RULES)):
         for j, v in enumerate(row):
             ws.cell(20 + k, 1 + j, v)
+    if "班級需求" not in wb.sheetnames:
+        wc = wb.create_sheet("班級需求", wb.sheetnames.index("老師需求") + 1)
+        wc["A1"] = "8-2. 班級需求（導師的需求）"
+        wc["A2"] = ("一列＝一個班級不想排科任的時段。班級可填單一班（3年1班）或整個年級（一、二年級）；"
+                    "星期可填一～五、「每天」或「二、四擇一」（系統挑一天）。")
+        for j, h in enumerate(["班級", "星期", "節次／時段", "程度", "原因（選填）"]):
+            wc.cell(3, 1 + j, h)
+        for col, w in zip("ABCDE", [14, 14, 14, 10, 36]):
+            wc.column_dimensions[col].width = w
     opts = wb["選項"]
-    for k, block in enumerate(["同科分散", "間隔天數"]):
+    for k, block in enumerate(["同科分散", "間隔天數", "班級不排時段"]):
         opts.cell(11 + k, 13, block)
     for dv in ws.data_validations.dataValidation:
         if "M$2:$M$10" in (dv.formula1 or ""):
-            dv.formula1 = "選項!$M$2:$M$12"
+            dv.formula1 = "選項!$M$2:$M$13"
         dv.sqref = openpyxl.worksheet.cell_range.MultiCellRange(str(dv.sqref).replace("19", "40"))
 
 
-def main(seed=115, out=OUT):
+def main(seed=115, out=OUT, band=False):
     random.seed(seed)
     wb = openpyxl.load_workbook(TEMPLATE)
 
@@ -101,6 +116,8 @@ def main(seed=115, out=OUT):
                 rows_by_subject.setdefault(subj, []).append([class_name(g, i), subj, hrs, loc, block])
     assign = []
     for subj, rows in rows_by_subject.items():
+        if not band:  # 科任跨年段：同一位老師的班級高中低年級混搭（低年級時段少，不要全給同一人）
+            rows.sort(key=lambda r: (int(r[0].split("年")[1][:-1]), int(r[0].split("年")[0])))
         k, load = 0, 0
         for r in rows:
             if load + r[2] > TARGET_LOAD[subj]:
@@ -127,17 +144,25 @@ def main(seed=115, out=OUT):
     all_classes = [(g, i) for g, n in CLASSES.items() for i in range(1, n + 1)]
     random.shuffle(all_classes)
     load = [("閩南語甲", 23), ("閩南語乙", 22), ("閩南語丙", 21), ("閩南語丁", 3), ("英語乙", 2)]
-    busy = {}
-    rows = []
-    k = 0
-    for t, n in load:
-        for g, i in all_classes[k:k + n]:
-            options = [s2 for s2 in class_slots(g) if s2[1] != 7 and (t, s2) not in busy
-                       and sum(1 for (t2, s3) in busy if t2 == t and s3[0] == s2[0]) < 6]
-            d, p = random.choice(options)
-            busy[(t, (d, p))] = class_name(g, i)
-            rows.append([class_name(g, i), d, str(p), "閩南語", t, "原班教室", "（試跑）科任兼本土語" if t == "英語乙" else None])
-        k += n
+    for _ in range(200):  # 模擬學校人工預排：可排格子少的低年級先排，排不下就重來
+        busy, rows, k, stuck = {}, [], 0, False
+        for t, n in load:
+            for g, i in sorted(all_classes[k:k + n]):
+                options = [s2 for s2 in class_slots(g) if s2[1] != 7 and (t, s2) not in busy
+                           and sum(1 for (t2, s3) in busy if t2 == t and s3[0] == s2[0]) < 6]
+                if not options:
+                    stuck = True
+                    break
+                d, p = random.choice(options)
+                busy[(t, (d, p))] = class_name(g, i)
+                rows.append([class_name(g, i), d, str(p), "閩南語", t, "原班教室",
+                             "（試跑）科任兼本土語" if t == "英語乙" else None])
+            k += n
+            if stuck:
+                break
+        if not stuck:
+            break
+        random.shuffle(all_classes)
     for idx in random.sample(range(len(rows)), 10):
         lang, t = random.choice([("客語", "客語甲"), ("客語", "客語甲"), ("族語", "族語甲"), ("新住民語", "新住民語甲")])
         r0 = rows[idx]
@@ -212,6 +237,17 @@ def main(seed=115, out=OUT):
 
     add_rules(wb)
 
+    # 8. 班級需求（導師的需求，2026-10-21 Bing 指定的試跑情境）
+    ws = wb["班級需求"]
+    mid = random.sample([class_name(g, i) for g in (3, 4) for i in range(1, CLASSES[g] + 1)], 12)
+    high = random.sample([class_name(g, i) for g in (5, 6) for i in range(1, CLASSES[g] + 1)], 20)
+    rows = [["一、二年級", "每天", "1、4", "必須", "第 1、4 節導師上課（低年級全部）"]]
+    rows += [[c, "二、四擇一", "下午", "必須", "至少一個整天的下午不排科任"] for c in sorted(mid)]
+    rows += [[c, "五", "下午", "必須", "星期五下午不排科任"] for c in sorted(high)]
+    for r, vals in enumerate(rows):
+        for j, v in enumerate(vals):
+            ws.cell(4 + r, 1 + j, v)
+
     out.parent.mkdir(exist_ok=True)
     wb.save(out)
     print(f"已產生 {out.name}：{len(teachers)} 位科任、{len(assign)} 筆配課")
@@ -219,4 +255,5 @@ def main(seed=115, out=OUT):
 
 if __name__ == "__main__":
     import sys
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 115, Path(sys.argv[2]) if len(sys.argv) > 2 else OUT)
+    main(int(sys.argv[1]) if len(sys.argv) > 1 else 115, Path(sys.argv[2]) if len(sys.argv) > 2 else OUT,
+         band="band" in sys.argv)

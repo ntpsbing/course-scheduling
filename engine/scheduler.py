@@ -92,11 +92,13 @@ def parse_grades(target):
 
 
 SHEETS = ["規則表", "科任配課", "本土語預排", "特教抽離", "共同時段", "職務限制", "班級教室", "老師需求"]
+OPTIONAL_SHEETS = ["班級需求"]  # 沒有這張也能排
 
 
 def xlsx_to_tables(path):
     wb = openpyxl.load_workbook(path, data_only=True)
-    return {n: [list(r) for r in wb[n].iter_rows(values_only=True)] for n in SHEETS}
+    return {n: [list(r) for r in wb[n].iter_rows(values_only=True)] for n in SHEETS + OPTIONAL_SHEETS
+            if n in wb.sheetnames}
 
 
 def load(path):
@@ -141,6 +143,10 @@ def load_tables(wb):
     d["needs"] = [dict(teacher=r[0], day=r[1], periods=parse_periods(r[2]), level=r[3], reason=r[4],
                        raw=r[2])
                   for r in read_rows(wb["老師需求"], 5, 5) if r[0] and r[1] and r[2]]
+    # 班級需求（導師的需求）：班級可填單一班或「一、二年級」；星期可填「每天」或「二、四擇一」
+    d["class_needs"] = [dict(target=r[0], day=r[1], periods=parse_periods(r[2]), level=r[3] or "必須",
+                             reason=r[4], raw=r[2])
+                        for r in read_rows(wb.get("班級需求", []), 4, 5) if r[0] and r[1] and r[2]]
     return d
 
 
@@ -199,6 +205,41 @@ class Scheduler:
                 if row["cls"] in self.grid and self.grid[row["cls"]].get(k, {}).get("type") != "off":
                     self.grid[row["cls"]][k] = dict(type="sped", label=row["subject"], who="導師",
                                                     note=f"特教抽離：原班上{row['subject']}")
+
+        # 班級需求（導師要自己上的節）：必須＝直接保留給導師；希望＝盡量；擇一＝由系統挑一天
+        self.class_wish = defaultdict(dict)
+        self.class_choice = []  # (班級, [(星期, 格集合)], 層級, 原因)
+        self.class_need_conflicts = []
+        hard_class = any(r["level"] <= 2 for r in self.on("班級不排時段"))
+        soft_class = any(r["level"] == 3 for r in self.on("班級不排時段"))
+        for n in d.get("class_needs", []):
+            grades = parse_grades(n["target"])
+            classes = [c for c, info in d["classes"].items()
+                       if (grades is None and c == n["target"]) or (grades is not None and info["grade"] in grades)]
+            choose = "擇一" in n["day"]
+            day_text = n["day"].replace("擇一", "")
+            days = [x for x in DAYS if x in day_text] if day_text not in ("每天", "全週") else list(DAYS)
+            must = n["level"] == "必須"
+            if (must and not hard_class) or (not must and not soft_class):
+                continue
+            for c in classes:
+                if choose:
+                    self.class_choice.append((c, [(x, {slot_key(x, p) for p in n["periods"]}) for x in days],
+                                              2 if must else 3, n["reason"] or "導師需求"))
+                    continue
+                for x in days:
+                    for p in n["periods"]:
+                        k = slot_key(x, p)
+                        cur = self.grid[c].get(k)
+                        if cur and cur["type"] in ("off", "lock", "sped"):
+                            continue
+                        if cur and cur["type"] == "lang":
+                            self.class_need_conflicts.append(f"{c} 星期{x}第{p}節：導師要上課，但已預排{cur['label']}")
+                            continue
+                        if must:
+                            self.grid[c][k] = dict(type="keep", label="導師", who="導師", note=n["reason"] or "導師需求")
+                        else:
+                            self.class_wish[c][k] = n["reason"] or "導師希望"
 
         # 第 0 層：職務不排時段
         self.duty_slots = defaultdict(dict)
@@ -273,6 +314,8 @@ class Scheduler:
             if n_must > 3:
                 self.issues.append(dict(level="提醒", text=f"{t} 勾了 {n_must} 節「必須」不排，超過每人 3 節的上限。"))
         self.precheck_lang()
+        for t in self.class_need_conflicts:
+            self.issues.append(dict(level="提醒", text=f"班級需求與本土語預排重疊：{t}（以本土語為準）。"))
         for c in d["classes"]:
             need = sum(a["hours"] for a in d["assign"] if a["cls"] == c)
             free = len([k for k in all_slots if self.free(c, k)])
@@ -426,6 +469,29 @@ class Scheduler:
                         m.Add(ex >= sum(events) - 1)
                         penalties.append((WEIGHT.get(r["importance"], 4), ex))
             self.vars.append(v)
+
+        # 班級需求：擇一（例如星期二或星期四下午擇一天不排科任）
+        cls_rule = {r["level"]: r for r in self.on("班級不排時段")}
+        for c, options, lv, why in self.class_choice:
+            ys = []
+            for x, slots in options:
+                y = m.NewBoolVar("")
+                ys.append(y)
+                for k in slots:
+                    for v in occ_class[c].get(k, []):
+                        m.AddBoolOr([y.Not(), v.Not()])
+            if lv <= 2:
+                m.AddBoolOr(ys)
+            else:
+                miss = m.NewBoolVar("")
+                m.AddBoolOr(ys + [miss])
+                penalties.append((WEIGHT.get(cls_rule.get(3, {}).get("importance"), 4) * 2, miss))
+        if 3 in cls_rule:
+            w = WEIGHT.get(cls_rule[3]["importance"], 4)
+            for c, slots in self.class_wish.items():
+                for k in slots:
+                    for v in occ_class[c].get(k, []):
+                        penalties.append((w, v))
 
         # 必須：同一位老師同一節只能一班；同一班同一節只能一門科任；教室容量
         for t, slots in occ_teacher.items():
@@ -629,6 +695,29 @@ def check(s):
                     bad.append(f"{a['cls']} 原班那節和連堂排在同一天")
             n = len([v for v in s.vars if v["a"]["subject"] == r["target"] and v["a"]["block"]])
             add(r, not bad, f"{n} 班都是 2 節連堂在專科教室＋1 節在原班，且排在不同天" if not bad else "有班級沒排好", bad)
+        elif b == "班級不排時段":
+            by_cls = defaultdict(set)
+            for l in s.lessons:
+                by_cls[l["cls"]].add(slot_key(l["day"], l["period"]))
+            bad, n_req = [], 0
+            if r["level"] <= 2:
+                n_req = sum(1 for c in s.grid for v in s.grid[c].values() if v["type"] == "keep")
+            else:
+                for c, slots in s.class_wish.items():
+                    n_req += len(slots)
+                    bad += [f"{c} 星期{k[0]}第{k[1:]}節" for k in slots if k in by_cls[c]]
+            chosen = []
+            for c, options, lv, why in s.class_choice:
+                if (lv <= 2) != (r["level"] <= 2):
+                    continue
+                n_req += 1
+                ok_days = [x for x, slots in options if not slots & by_cls[c]]
+                if ok_days:
+                    chosen.append(ok_days[0])
+                else:
+                    bad.append(f"{c}：{'、'.join(x for x, _ in options)} 都排了科任（{why}）")
+            extra = ("；擇一的班級空出：" + "、".join(f"星期{x} {chosen.count(x)} 班" for x in DAYS if x in chosen)) if chosen else ""
+            add(r, not bad, (f"{n_req} 項導師需求全部做到" if not bad else f"{n_req} 項中有 {len(bad)} 項沒做到") + extra, bad)
         elif b == "間隔天數":
             n = rule_number(r, "天", 1)
             bad, total = [], 0
@@ -703,7 +792,7 @@ def build_output(s, src_name):
                 cells[slot_key(l["day"], l["period"])] = dict(type="subject", label=l["subject"], who=l["teacher"],
                                                               room=l["room"], block=l["block"])
         n_free = len([1 for dd in DAYS for p in PERIODS if slot_key(dd, p) not in cells])
-        n_keep = len([1 for v in cells.values() if v["type"] in ("lock", "sped") and v.get("who") == "導師"])
+        n_keep = len([1 for v in cells.values() if v["type"] in ("lock", "sped", "keep") and v.get("who") == "導師"])
         classes[c] = dict(grade=info["grade"], building=info["building"], floor=info["floor"], room=info["room"],
                           cells=cells, free=n_free, keep=n_keep,
                           subject_hours=len([l for l in s.lessons if l["cls"] == c]))
