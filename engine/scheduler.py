@@ -267,6 +267,8 @@ class Scheduler:
                 self.issues.append(dict(level="錯誤", text=f"{t} 要上 {hrs} 節，但扣掉不能排的時段只剩 {avail} 格。"))
             elif hrs > usable:
                 self.issues.append(dict(level="錯誤", text=f"{t} 要上 {hrs} 節，但任教班級的在校時段加起來只有 {usable} 格（例如低年級下午不上課），一定排不下，請調整配課。"))
+            elif usable - hrs <= 2:
+                self.issues.append(dict(level="提醒", text=f"{t} 要上 {hrs} 節，可排的時段只有 {usable} 格，幾乎沒有彈性；這位老師的「必須」不排、職務時段請盡量不要再增加。"))
             n_must = len(self.must.get(t, {}))
             if n_must > 3:
                 self.issues.append(dict(level="提醒", text=f"{t} 勾了 {n_must} 節「必須」不排，超過每人 3 節的上限。"))

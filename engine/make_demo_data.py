@@ -28,14 +28,16 @@ PLAN = {
 PLAN[2], PLAN[4], PLAN[6] = PLAN[1], PLAN[3], PLAN[5]
 TARGET_LOAD = {"英語": 20, "自然": 21, "社會": 18, "體育": 20, "音樂": 20, "資訊": 24, "健康": 16}
 
-# 假設的作息（真資料請 Bing 填）
+# 學校作息（2026-10-21 Bing 確認）：星期三下午全校不上課；低年級只有星期二整天；
+# 中年級星期一、二、四整天（星期五下午不上課）；高年級星期一、二、四、五整天
 COMMON = [
     ("全校", "三", "1", "綠色迪士尼", "導師", "是", None),
     ("三、四年級", "一", "5–7", "綜合", "導師", "是", "年段共同時段"),
     ("五、六年級", "四", "5–7", "綜合", "導師", "是", "年段共同時段"),
-    ("全校", "三", "下午", "不上課", "—", "是", "（試跑假設）星期三下午全校不上課"),
-] + [("一、二年級", d, "下午", "不上課", "—", "是", "（試跑假設）低年級只有星期二整天")
-     for d in ["一", "三", "四", "五"]]
+    ("全校", "三", "下午", "不上課", "—", "是", "星期三下午半天"),
+] + [("一、二年級", d, "下午", "不上課", "—", "是", "低年級只有星期二整天") for d in ["一", "三", "四", "五"]] + [
+    ("三、四年級", "五", "下午", "不上課", "—", "是", "中年級星期一、二、四整天"),
+]
 
 
 def class_name(g, i):
@@ -53,7 +55,7 @@ def class_slots(g):
                 continue
             if d == "三" and p == 1:
                 continue
-            if g in (3, 4) and d == "一" and p >= 5:
+            if g in (3, 4) and d in ("一", "五") and p >= 5:  # 星期一下午綜合（鎖定）、星期五下午不上課
                 continue
             if g in (5, 6) and d == "四" and p >= 5:
                 continue
@@ -161,7 +163,8 @@ def main(seed=115, out=OUT):
     for k, r in enumerate(duty_rules):
         for j, v in enumerate(r):
             ws.cell(4 + k, 1 + j, v)
-    for k, (t, duty) in enumerate([("英語丙", duty_rules[0][0]), ("自然丁", duty_rules[1][0])]):
+    # 職務給高年級老師（中低年級可上課時段少，再扣職務時段容易排不下）
+    for k, (t, duty) in enumerate([("英語戊", duty_rules[0][0]), ("自然戊", duty_rules[1][0])]):
         ws.cell(4 + k, 7, t)
         ws.cell(4 + k, 8, duty)
 
@@ -189,7 +192,9 @@ def main(seed=115, out=OUT):
     r = 5
     reasons = ["接送小孩", "進修", "身體因素", "兼任行政會議", None]
     for t in random.sample(teachers, len(teachers) // 3):
-        n_must = random.randint(0, 3)
+        # 只教中低年級的老師可排時段很少，照試跑建議只勾「希望」、不勾「必須」
+        only_low = all(int(r[2].split("年")[0]) <= 4 for r in assign if r[0] == t)
+        n_must = 0 if only_low or t in ("英語戊", "自然戊") else random.randint(0, 3)  # 有職務的老師也不勾
         for _ in range(n_must):
             d = random.choice(DAYS)
             p = random.choice(["1", "2", "3", "4", "6"])
